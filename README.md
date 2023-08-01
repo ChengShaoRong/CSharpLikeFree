@@ -1,4 +1,7 @@
 # Directory structure
+***
+Read this in other languages: [中文](https://github.com/ChengShaoRong/CSharpLikeFree/blob/master/README_Chinese.md). 
+
 ## CSharpLikeFreeDemo
 -  Used for exporting [C#LikeFree Demo](https://www.csharplike.com/CSharpLikeFreeDemo/index.html), the initial package can load the hot update project.
 - Guide:
