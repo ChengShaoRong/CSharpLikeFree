@@ -1,0 +1,30 @@
+{
+    "version": "1.0",
+    "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/Tank/WebGL/",
+    "sumSize": 4939987,
+    "codeFile": "Assets/C#Like/output/code.bytes",
+    "files": [
+        {
+            "fileName": "code.ab",
+            "hash128": "65d57976ca27a5e45c4b93dd9e39b66a",
+            "size": 10082,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "tanks.ab",
+            "hash128": "bbd9d3c52862c052bdc28ec8923a9c6a",
+            "size": 4928528,
+            "assets": [
+                "Assets/_Complete-Game_HotUpdate.unity"
+            ],
+            "dependencies": [
+
+            ]
+        }
+    ]
+}

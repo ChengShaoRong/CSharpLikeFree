@@ -1,0 +1,4 @@
+*AssetStoreTools:False
+*isDebug:False
+*isAssetBundleLZ:True
+ProductName:CsharpLike

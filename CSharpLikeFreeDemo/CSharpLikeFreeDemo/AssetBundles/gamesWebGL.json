@@ -1,0 +1,23 @@
+[
+    {
+        "name": "C#Like Demo",
+        "codeFile": "Assets/C#Like/output/code.bytes",
+        "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/CsharpLike/WebGL/config.json",
+        "loadFirstScene": "",
+        "loadFirstPrefab": "Assets/C#Like/Sample/SampleCSharpLikeHotUpdate.prefab"
+    },
+    {
+        "name": "Tanks! Tutorial",
+        "codeFile": "Assets/C#Like/output/code.bytes",
+        "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/Tank/WebGL/config.json",
+        "loadFirstScene": "Assets/_Complete-Game_HotUpdate.unity",
+        "loadFirstPrefab": ""
+    },
+    {
+        "name": "Platformer Microgame",
+        "codeFile": "Assets/C#Like/output/code.bytes",
+        "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/MicrogameFree/WebGL/config.json",
+        "loadFirstScene": "Assets/Scenes/SampleScene_HotUpdate.unity",
+        "loadFirstPrefab": ""
+    }
+]

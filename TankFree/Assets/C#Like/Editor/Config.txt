@@ -1,0 +1,5 @@
+*AssetStoreTools:False
+*isDebug:False
+*isAssetBundleLZ:True
+ProductName:Tank
+ScriptSourceDir:Assets/_Completed-Assets/HotUpdateScripts

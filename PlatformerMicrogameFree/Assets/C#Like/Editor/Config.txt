@@ -1,0 +1,5 @@
+*AssetStoreTools:False
+*isDebug:False
+*isAssetBundleLZ:True
+ProductName:MicrogameFree
+ScriptSourceDir:Assets/Scripts_HotUpdate

@@ -1,0 +1,57 @@
+{
+    "version": "1.0",
+    "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/CsharpLike/WebGL/",
+    "sumSize": 350994,
+    "codeFile": "Assets/C#Like/output/code.bytes",
+    "files": [
+        {
+            "fileName": "cslike.ab",
+            "hash128": "73e2be082bbfbb807e6273e5317d7622",
+            "size": 324786,
+            "assets": [
+                "assets/c#like/sample/aircraftbattle/aircraft0.prefab",
+                "assets/c#like/sample/aircraftbattle/battlefield.prefab",
+                "assets/c#like/sample/aircraftbattle/bullet0.prefab",
+                "assets/c#like/sample/aircraftbattle/bullet1.prefab",
+                "assets/c#like/sample/aircraftbattle/bullet2.prefab",
+                "assets/c#like/sample/aircraftbattle/enemy0.prefab",
+                "assets/c#like/sample/aircraftbattle/enemy1.prefab",
+                "assets/c#like/sample/aircraftbattle/enemy2.prefab",
+                "assets/c#like/sample/aircraftbattle/money0.prefab",
+                "assets/c#like/sample/csv/item.csv",
+                "assets/c#like/sample/csv/testcsv.csv",
+                "assets/c#like/sample/image/aircraft0.png",
+                "assets/c#like/sample/image/bg.png",
+                "assets/c#like/sample/image/bullet0.png",
+                "assets/c#like/sample/image/bullet1.png",
+                "assets/c#like/sample/image/enemy0.png",
+                "assets/c#like/sample/image/enemy1.png",
+                "assets/c#like/sample/image/enemy2.png",
+                "assets/c#like/sample/image/hpbar.png",
+                "assets/c#like/sample/image/money0.png",
+                "assets/c#like/sample/samplec#.prefab",
+                "assets/c#like/sample/samplechatroom.prefab",
+                "assets/c#like/sample/samplechatroomonemsg.prefab",
+                "assets/c#like/sample/samplecsharplikehotupdate.prefab",
+                "assets/c#like/sample/samplehelloworld.prefab",
+                "assets/c#like/sample/sampleinteractiveprefabdata.prefab",
+                "assets/c#like/sample/samplelogin.prefab",
+                "assets/c#like/sample/testtextasset.txt"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "code.ab",
+            "hash128": "0f4e0fdb342419b309aabfb4b094a56f",
+            "size": 26208,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+*AssetStoreTools:False
+*isDebug:False
+*isAssetBundleLZ:True
+ProductName:CSharpLikeFreeDemo
+ScriptSourceDir:Assets/C#Like/HotUpdateScripts
+*isAutoPackScriptWhenPlay:False

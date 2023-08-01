@@ -1,0 +1,30 @@
+{
+    "version": "1.0",
+    "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/MicrogameFree/WebGL/",
+    "sumSize": 3969874,
+    "codeFile": "Assets/C#Like/output/code.bytes",
+    "files": [
+        {
+            "fileName": "code.ab",
+            "hash128": "bc9cde31dc81be930ccac52a1ec2e606",
+            "size": 12636,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "microgamefree.ab",
+            "hash128": "53e2634b576c6cbb693efae0c263c537",
+            "size": 3957238,
+            "assets": [
+                "Assets/Scenes/SampleScene_HotUpdate.unity"
+            ],
+            "dependencies": [
+
+            ]
+        }
+    ]
+}
