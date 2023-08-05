@@ -29,3 +29,10 @@
 > * Unity打开项目,切换到WebGL平台
 > * 菜单"Menu"->"C#Like"->"C#Like Setting"->"Rebuild Scripts"
 > * 最终生成最终目录"PlatformerMicrogameFree\AssetBundles\MicrogameFree",里面包含3个文件, 最后将放到目录"CSharpLikeFreeDemo\CSharpLikeFreeDemo\AssetBundles"
+
+## HowToUpgradeToCSharpLike? 
+我们在GitHub只提供C#Like免费版的示范'CSharpLikeFreeDemo'. 我们可以很简单地升级到完整版.
+例如我们把'TankFree'升级到'Tank':
+> * 复制目录'TankFree'到目录'Tank',然后使用Unity打开它.
+> * 导入C#Like资源,'Window'->'Package Manager'->'My Assets'->'C#Like hot update framework'->'Import'.
+> * 复制目录'HowToUpgradeToCSharpLike/Tank'里所有内容到目录'Tank'

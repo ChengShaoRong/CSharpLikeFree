@@ -32,3 +32,10 @@ Read this in other languages: [中文](https://github.com/ChengShaoRong/CSharpLi
 > * Open the project, and switch to WebGL platform
 > * Menu "Menu"->"C#Like"->"C#Like Setting"->"Rebuild Scripts"
 > * Finally export to the folder "PlatformerMicrogameFree\AssetBundles\MicrogameFree", include 3 files, and put them to "CSharpLikeFreeDemo\CSharpLikeFreeDemo\AssetBundles"
+
+## HowToUpgradeToCSharpLike
+The source in GitHub only provide 'CSharpLikeFreeDemo' using C#LikeFree. We can upgrade to C#Like easy.
+e.g. We upgrade 'TankFree' to 'Tank':
+> * Duplicate folder 'TankFree' to folder 'Tank', and then open it in Unity.
+> * Import your C#Like asset, 'Window'->'Package Manager'->'My Assets'->'C#Like hot update framework'->'Import'.
+> * Copy all item in folder 'HowToUpgradeToCSharpLike/Tank' to folder 'Tank'
