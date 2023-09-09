@@ -1,9 +1,26 @@
 {
-    "version": "1.0",
+    "version": "1.6",
     "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/CsharpLike/WebGL/",
-    "sumSize": 350994,
+    "sumSize": 360718,
     "codeFile": "Assets/C#Like/output/code.bytes",
+    "name": "CsharpLike",
+    "displayName": "C#Like Demo",
+    "defaultScene": "Assets/C#Like/Scenes/BuildInDemoScene.unity",
+    "custom": {
+        "Icon": "ABC"
+    },
     "files": [
+        {
+            "fileName": "code.ab",
+            "hash128": "9092e58b55b59b6f94e68764f36cbda5",
+            "size": 26304,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        },
         {
             "fileName": "cslike.ab",
             "hash128": "73e2be082bbfbb807e6273e5317d7622",
@@ -43,11 +60,11 @@
             ]
         },
         {
-            "fileName": "code.ab",
-            "hash128": "0f4e0fdb342419b309aabfb4b094a56f",
-            "size": 26208,
+            "fileName": "demoscene.ab",
+            "hash128": "35a9eb3a6156a120efde8991cf781e87",
+            "size": 9628,
             "assets": [
-                "assets/c#like/output/code.bytes"
+                "Assets/C#Like/Scenes/BuildInDemoScene.unity"
             ],
             "dependencies": [
 

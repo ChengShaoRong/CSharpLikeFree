@@ -40,13 +40,13 @@ namespace AircraftBattle
         /// <summary>
         /// the player's aircraft
         /// </summary>
-        public HotUpdateBehaviour player;
+        public Aircraft player;
 
         /// <summary>
         /// the enemys show in the battle
         /// </summary>
-        List<HotUpdateBehaviour> enemys = new List<HotUpdateBehaviour>();
-        public void RemoveEnemy(HotUpdateBehaviour enemy)
+        List<Enemy> enemys = new List<Enemy>();
+        public void RemoveEnemy(Enemy enemy)
         {
             enemys.Remove(enemy);
         }
@@ -134,9 +134,9 @@ namespace AircraftBattle
             GetGameObject("ButtonStart").SetActive(false);
             //create an Aircraft
             HotUpdateManager.NewInstance("Assets/C#Like/Sample/AircraftBattle/Aircraft0.prefab",
-                (HotUpdateBehaviour hub) =>
+                (object obj) =>
                 {
-                    player = hub;
+                    player = obj as Aircraft;
                     RefreshHP();
                 },
                 goBattle.transform, new Vector3(0f, -600f, 0f));
@@ -171,7 +171,7 @@ namespace AircraftBattle
             GameObject.Destroy(player.gameObject);
             player = null;
             foreach (var item in enemys)
-                HotUpdateManager.PushToPool(item);
+                HotUpdateManager.PushToPool(item.behaviour);
             enemys.Clear();
             //clear money
             HotUpdateBehaviour[] moneys = goBattle.GetComponentsInChildren<HotUpdateBehaviour>();
@@ -189,9 +189,9 @@ namespace AircraftBattle
                 activeEnemyTime = 1f;
             JSONData randomEnemy = enemyInfo[Random.Range(0, enemyInfo.Count)];
             HotUpdateManager.NewInstance("Assets/C#Like/Sample/AircraftBattle/Enemy" + (randomEnemy["ClassID"] - 200) + ".prefab",
-                (HotUpdateBehaviour hub) =>
+                (object obj) =>
                 {
-                    enemys.Add(hub);
+                    enemys.Add(obj as Enemy);
                 },
                 goBattle.transform,
                 new Vector3(Random.Range(randomEnemy["startX1"], randomEnemy["startX2"]), view.w  - flyDistance + 50f));

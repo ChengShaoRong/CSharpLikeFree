@@ -19,4 +19,5 @@
     <assembly fullname="UnityEngine.TilemapModule" preserve="all"/>
     <assembly fullname="Cinemachine" preserve="all"/>
     <assembly fullname="Unity.TextMeshPro" preserve="all"/>
+    <assembly fullname="UnityEngine.UnityWebRequestModule" preserve="all"/>
 </linker>

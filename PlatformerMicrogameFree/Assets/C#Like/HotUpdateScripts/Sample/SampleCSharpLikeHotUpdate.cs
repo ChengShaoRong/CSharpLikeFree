@@ -4,6 +4,7 @@
 //--------------------------
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace CSharpLike
@@ -40,7 +41,7 @@ namespace CSharpLike
             {
                 HotUpdateManager.Hide("Assets/C#Like/Sample/SampleCSharpLikeHotUpdate.prefab");
                 HotUpdateManager.Show("Assets/C#Like/Sample/SampleHelloWorld.prefab",
-                    (HotUpdateBehaviour behaviour) =>
+                    (object obj) =>
                     {
                         Debug.Log("Assets/C#Like/Sample/SampleHelloWorld Show return");
                     },
@@ -50,7 +51,7 @@ namespace CSharpLike
             {
                 HotUpdateManager.Hide("Assets/C#Like/Sample/SampleCSharpLikeHotUpdate.prefab");
                 HotUpdateManager.Show("Assets/C#Like/Sample/SampleInteractivePrefabData.prefab",
-                    (HotUpdateBehaviour behaviour) =>
+                    (object obj) =>
                     {
                         Debug.Log("Assets/C#Like/Sample/SampleInteractivePrefabData Show return");
                     },
@@ -60,7 +61,7 @@ namespace CSharpLike
             {
                 HotUpdateManager.Hide("Assets/C#Like/Sample/SampleCSharpLikeHotUpdate.prefab");
                 HotUpdateManager.Show("Assets/C#Like/Sample/SampleC#.prefab",
-                    (HotUpdateBehaviour behaviour) =>
+                    (object obj) =>
                     {
                         Debug.Log("Sample/SampleC# Show return");
                     },
@@ -70,7 +71,7 @@ namespace CSharpLike
             {
                 HotUpdateManager.Hide("Assets/C#Like/Sample/SampleCSharpLikeHotUpdate.prefab");
                 HotUpdateManager.Show("Assets/C#Like/Sample/AircraftBattle/BattleField.prefab",
-                    (HotUpdateBehaviour behaviour) =>
+                    (object obj) =>
                     {
                         Debug.Log("Assets/C#Like/Sample/AircraftBattle/BattleField Show return");
                     },
@@ -80,11 +81,16 @@ namespace CSharpLike
             {
                 HotUpdateManager.Hide("Assets/C#Like/Sample/SampleCSharpLikeHotUpdate.prefab");
                 HotUpdateManager.Show("Assets/C#Like/Sample/SampleChatRoom.prefab",
-                    (HotUpdateBehaviour behaviour) =>
+                    (object obj) =>
                     {
                         Debug.Log("Assets/C#Like/Sample/SampleChatRoom Show return");
                     },
                     transform.parent);
+            }
+            if (GUI.Button(new Rect(100, 600, 300, 64), "Exit", fontStyle))
+            {
+                HotUpdateManager.ClearAllHotUpdatePrefabs();
+                SceneManager.LoadScene(0);
             }
         }
     }

@@ -10,7 +10,6 @@ using UnityEngine;
 namespace CSharpLike
 {
 
-    [HelpURL("https://www.csharplike.com/MyCustomConfig.html")]
     public class MyCustomConfig
     {
         /// <summary>
@@ -23,13 +22,6 @@ namespace CSharpLike
             {
                 return CultureInfo.InvariantCulture;
             }
-        }
-        static void RegisterType(Type type, string keyword)
-        {
-            HotUpdateManager.vm.RegType(RegHelper_Type.MakeType(type, keyword));
-        }
-        public static void RegisterEnv()
-        {
         }
     }
 }

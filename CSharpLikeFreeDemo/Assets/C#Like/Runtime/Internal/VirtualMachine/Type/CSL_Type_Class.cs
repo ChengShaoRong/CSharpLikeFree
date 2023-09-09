@@ -396,7 +396,7 @@ namespace CSharpLike
                     {
                         case "behaviour":
                             value = new CSL_Content.Value();
-                            value.type = typeof(LikeBehaviour);
+                            value.type = typeof(HotUpdateBehaviour);
                             value.value = behaviour.behaviour;
                             return value;
                         case "gameObject":

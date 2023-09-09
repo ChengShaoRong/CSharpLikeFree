@@ -1,12 +1,18 @@
 {
-    "version": "1.0",
+    "version": "1.6",
     "url": "StreamingAssets/AssetBundles/MicrogameFree/WebGL/",
     "sumSize": 3969874,
     "codeFile": "Assets/C#Like/output/code.bytes",
+    "name": "MicrogameFree",
+    "displayName": "Platformer Microgame",
+    "defaultScene": "Assets/Scenes/SampleScene_HotUpdate.unity",
+    "custom": {
+        "Icon": "ABC"
+    },
     "files": [
         {
             "fileName": "code.ab",
-            "hash128": "bc9cde31dc81be930ccac52a1ec2e606",
+            "hash128": "fa8327ddb7a8ef57d23fbb8a7068d7f8",
             "size": 12636,
             "assets": [
                 "assets/c#like/output/code.bytes"

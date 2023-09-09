@@ -1,12 +1,18 @@
 {
-    "version": "1.0",
+    "version": "1.6",
     "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/Tank/WebGL/",
-    "sumSize": 4939987,
+    "sumSize": 4938610,
     "codeFile": "Assets/C#Like/output/code.bytes",
+    "name": "Tank",
+    "displayName": "Tanks! Tutorial",
+    "defaultScene": "Assets/C#Like/Scenes/BuildInDemoScene.unity",
+    "custom": {
+        "Icon": "ABC"
+    },
     "files": [
         {
             "fileName": "code.ab",
-            "hash128": "65d57976ca27a5e45c4b93dd9e39b66a",
+            "hash128": "68a01eb5de3911b7c2733ef388d1a371",
             "size": 10082,
             "assets": [
                 "assets/c#like/output/code.bytes"

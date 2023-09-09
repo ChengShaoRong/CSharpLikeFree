@@ -1,23 +1,26 @@
 [
     {
-        "name": "C#Like Demo",
-        "codeFile": "Assets/C#Like/output/code.bytes",
+        "version": "1.6",
+        "sumSize": 360718,
+        "name": "CsharpLike",
+        "displayName": "C#Like Demo",
         "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/CsharpLike/WebGL/config.json",
-        "loadFirstScene": "",
-        "loadFirstPrefab": "Assets/C#Like/Sample/SampleCSharpLikeHotUpdate.prefab"
+        "Icon": "ABC"
     },
     {
-        "name": "Tanks! Tutorial",
-        "codeFile": "Assets/C#Like/output/code.bytes",
-        "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/Tank/WebGL/config.json",
-        "loadFirstScene": "Assets/_Complete-Game_HotUpdate.unity",
-        "loadFirstPrefab": ""
-    },
-    {
-        "name": "Platformer Microgame",
-        "codeFile": "Assets/C#Like/output/code.bytes",
+        "version": "1.6",
+        "sumSize": 3969874,
+        "name": "MicrogameFree",
+        "displayName": "Platformer Microgame",
         "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/MicrogameFree/WebGL/config.json",
-        "loadFirstScene": "Assets/Scenes/SampleScene_HotUpdate.unity",
-        "loadFirstPrefab": ""
+        "Icon": "ABC"
+    },
+    {
+        "version": "1.6",
+        "sumSize": 4938610,
+        "name": "Tank",
+        "displayName": "Tanks! Tutorial",
+        "url": "https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles/Tank/WebGL/config.json",
+        "Icon": "ABC"
     }
 ]

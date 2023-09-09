@@ -1565,10 +1565,9 @@ namespace CSharpLike
 				if (mObject is LikeBehaviour)
 					((LikeBehaviour)mObject).____Init(behaviour);
 #else
-				if (HotUpdateManager.instance == null)
-                {
-					MyHotUpdateManager.Init();
-                }
+#if UNITY_EDITOR
+                HotUpdateManager.InitForEditor();
+#endif
                 type = HotUpdateManager.instance.GetScriptType(bindHotUpdateClassName, out content);
 				if (type == null)
 				{

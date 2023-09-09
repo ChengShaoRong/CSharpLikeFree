@@ -1,19 +1,11 @@
-*UnityEngine.TestRunner:False
-*Unity.Timeline:False
-*Unity.TextMeshPro:False
-*Unity.Mathematics:False
-*Unity.InternalAPIEngineBridge.001:False
-*Unity.2D.SpriteShape.Runtime:False
-*Unity.2D.PixelPerfect:False
-*Unity.2D.IK.Runtime:False
-*Unity.2D.Common.Runtime:False
-*Unity.2D.Animation.Triangle.Runtime:False
-*Unity.2D.Animation.Runtime:False
-*PsdPlugin:False
-*AssetStoreTools:False
-*isAutoPackScriptWhenPlay:True
 *isDebug:False
-*FreeType:False
 *isAssetBundleLZ:True
 ProductName:Microgame
+DisplayName:Platformer Microgame
+DefaultScene:Assets/Scenes/SampleScene_HotUpdate.unity
+DownloadPath:https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles
+*customJSONCount:1
+customJSONKey0:Icon
+customJSONValue0:ABC
+Version:1.6
 ScriptSourceDir:Assets/Scripts_HotUpdate

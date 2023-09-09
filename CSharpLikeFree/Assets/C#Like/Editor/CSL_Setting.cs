@@ -256,15 +256,56 @@ namespace CSharpLikeEditor
             if (string.IsNullOrEmpty(strScriptOutputFile))
                 strScriptOutputFile = "Assets/C#Like/output/code.bytes";
             CheckFolder(strScriptOutputFile);
+            strDefaultScene = config.GetString("DefaultScene", "Assets/C#Like/Scenes/BuildInDemoScene.unity");
+            if (string.IsNullOrEmpty(strDefaultScene))
+                strDefaultScene = "Assets/C#Like/Scenes/BuildInDemoScene.unity";
             isDebug = config.GetBoolean("*isDebug", false);
             isAutoPackScriptWhenPlay = config.GetBoolean("*isAutoPackScriptWhenPlay", true);
             buildTarget = (BuildTarget)Enum.Parse(typeof(BuildTarget), config.GetString("*BuildTarget", GetDefaultBuildTarget().ToString()));
             strProductName = config.GetString("ProductName");
             if (string.IsNullOrEmpty(strProductName))
                 strProductName = Application.productName;
+            strVersion = config.GetString("Version");
+            if (string.IsNullOrEmpty(strVersion))
+                strVersion = Application.version;
+            strDisplayName = config.GetString("DisplayName");
+            if (string.IsNullOrEmpty(strDisplayName))
+                strDisplayName = strProductName;
+            strDownloadPath = config.GetString("DownloadPath", "");
             isAssetBundleLZ = config.GetBoolean("*isAssetBundleLZ", false);
+            int customJSONCount = config.GetInt("*customJSONCount", 0);
+            for (int i = 0; i < customJSONCount; i++)
+            {
+                string key = config.GetString("customJSONKey" + i, "");
+                string value = config.GetString("customJSONValue" + i, "");
+                if (!string.IsNullOrEmpty(key))
+                    customJSONs[key] = value;
+            }
+            SaveDownloadConfig();
             RefreshAssemblys();
             OnConfigChange();
+        }
+        static void SaveDownloadConfig()
+        {
+            string strFile = Application.dataPath + "/C#Like/Resources/CSharpLikeConfig.json";
+            CSharpLike.JSONData json = null;
+            string strOld = null;
+            if (File.Exists(strFile))
+            {
+                strOld = File.ReadAllText(strFile);
+                json = CSharpLike.KissJson.ToJSONData(strOld);
+            }
+            if (json == null)
+                json = CSharpLike.JSONData.NewDictionary();
+            string _strDownloadPath = strDownloadPath;
+            if (string.IsNullOrEmpty(_strDownloadPath))
+                _strDownloadPath = "StreamingAssets";
+            else if (_strDownloadPath.EndsWith("/"))
+                _strDownloadPath = _strDownloadPath.Substring(0, _strDownloadPath.Length - 1);
+            json[buildTarget.ToString()] = _strDownloadPath + "/games" + buildTarget + ".json";
+            string strNew = json.ToJson(true);
+            if (strNew != strOld)
+                File.WriteAllText(strFile, strNew, new System.Text.UTF8Encoding(false));
         }
         static void RefreshAssemblys()
         {
@@ -277,6 +318,11 @@ namespace CSharpLikeEditor
         public static string strScriptSourceDir;
         public static string strScriptOutputFile;
         public static string strProductName;
+        static string strVersion;
+        static string strDisplayName;
+        static string strDefaultScene;
+        static string strDownloadPath;
+        static Dictionary<string, string> customJSONs = new Dictionary<string, string>();
         static bool isAssetBundleLZ;
         static bool isDebug;
         static bool isAutoPackScriptWhenPlay;
@@ -287,6 +333,7 @@ namespace CSharpLikeEditor
         void OnGUI()
         {
             Init();
+            BuildTarget buildTarget = GetDefaultBuildTarget();
             EditorGUILayout.BeginVertical();
             Rect rect = EditorGUILayout.BeginHorizontal();
             strScriptSourceDir = EditorGUILayout.TextField(new GUIContent("Hot Update Script Folder:", "All scripts in this folder will consider as hot update scripts.Default folder is 'Assets/C#Like/HotUpdateScripts'"), strScriptSourceDir, GUILayout.MaxWidth(500f));
@@ -415,6 +462,138 @@ namespace CSharpLikeEditor
             if (GUILayout.Button(new GUIContent("Export AssetBundle", "Export AssetBundle files"), GUILayout.MaxWidth(120f)))
                 OnExportAssetBundle();
             EditorGUILayout.EndHorizontal();
+            EditorGUILayout.Space();
+
+            //JSON
+            EditorGUILayout.BeginVertical();
+            EditorGUILayout.SelectableLabel("Config JSON:");
+            rect = EditorGUILayout.BeginHorizontal();
+            string _strVersion = EditorGUILayout.TextField(new GUIContent("Version:", "Display name of the AssetBundle, for distinguish between different games."), strVersion, GUILayout.MaxWidth(500f));
+            if (_strVersion != strVersion)
+            {
+                strVersion = _strVersion;
+                config.SetString("Version", strVersion);
+                config.Save();
+            }
+            EditorGUILayout.EndHorizontal();
+            rect = EditorGUILayout.BeginHorizontal();
+            string _strDisplayName = EditorGUILayout.TextField(new GUIContent("Display Name:", "Display name of the AssetBundle, for distinguish between different games."), strDisplayName, GUILayout.MaxWidth(500f));
+            if (_strDisplayName != strDisplayName)
+            {
+                strDisplayName = _strDisplayName;
+                config.SetString("DisplayName", strDisplayName);
+                config.Save();
+            }
+            EditorGUILayout.EndHorizontal();
+            rect = EditorGUILayout.BeginHorizontal();
+            string _strDefaultScene = EditorGUILayout.TextField(new GUIContent("Default Scene:", "When you loaded the AssetBundle, it will use this scene as default scene."), strDefaultScene, GUILayout.MaxWidth(500f));
+            if (mouseOverWindow == this && (Event.current.type == EventType.DragUpdated || Event.current.type == EventType.DragExited))
+            {
+                if (rect.Contains(Event.current.mousePosition))
+                {
+                    if (Event.current.type == EventType.DragUpdated)
+                        DragAndDrop.visualMode = DragAndDropVisualMode.Generic;
+                    else
+                    {
+                        Focus();
+                        if (DragAndDrop.paths != null && DragAndDrop.paths.Length > 0)
+                        {
+                            string strPath = DragAndDrop.paths[0];
+                            if (File.Exists(strPath) && strPath.EndsWith(".unity"))
+                            {
+                                _strDefaultScene = strPath;
+                            }
+                        }
+                    }
+                }
+            }
+            if (_strDefaultScene != strDefaultScene)
+            {
+                strDefaultScene = _strDefaultScene;
+                config.SetString("DefaultScene", strDefaultScene);
+                config.Save();
+            }
+            EditorGUILayout.EndHorizontal();
+            rect = EditorGUILayout.BeginHorizontal();
+            string _strDownloadPath = EditorGUILayout.TextField(new GUIContent("Download Path:", $"Download path for the 'games{buildTarget}.json', default value is 'StreamingAssets/AssetBundles'."), strDownloadPath, GUILayout.MaxWidth(500f));
+            if (_strDownloadPath != strDownloadPath)
+            {
+                strDownloadPath = _strDownloadPath;
+                config.SetString("DownloadPath", strDownloadPath);
+                config.Save();
+                SaveDownloadConfig();
+            }
+            EditorGUILayout.EndHorizontal();
+            rect = EditorGUILayout.BeginHorizontal();
+            List<string> keys = new List<string>();
+            List<string> values = new List<string>();
+            foreach (var one in customJSONs)
+            {
+                keys.Add(one.Key);
+                values.Add(one.Value);
+            }
+            bool bModifyCustomJSON = false;
+            rect = EditorGUILayout.BeginVertical();
+            for (int i = 0; i < keys.Count; i++)
+            {
+                string key = keys[i];
+                string value = values[i];
+                EditorGUILayout.Separator();
+                EditorGUILayout.BeginHorizontal();
+                string _key = EditorGUILayout.TextField(new GUIContent("Modify Key:", $"You can edit the JSON key '{key}' and corresponding value is '{value}'.\nIt'll be removed if you set it empty."), key, GUILayout.MaxWidth(200f));
+                if (_key != key)
+                {
+                    keys[i] = _key;
+                    bModifyCustomJSON = true;
+                }
+                string _value = EditorGUILayout.TextField(new GUIContent("Modify Value:", $"You can edit the JSON value '{value}' and corresponding key is '{key}'"), value, GUILayout.MaxWidth(300f));
+                if (_value != value)
+                {
+                    values[i] = _value;
+                    bModifyCustomJSON = true;
+                }
+                EditorGUILayout.EndHorizontal();
+            }
+            EditorGUILayout.EndVertical();
+            EditorGUILayout.EndHorizontal();
+            rect = EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button(new GUIContent("New JSON Key", $"New a custom JSON, and then you can edit it"), GUILayout.MaxWidth(150f)))
+            {
+                string newKey = "CustomKey";
+                int count = 0;
+                while (customJSONs.ContainsKey(newKey))
+                {
+                    count++;
+                    newKey = "CustomKey" + count;
+                }
+                keys.Add(newKey);
+                values.Add("");
+                bModifyCustomJSON = true;
+            }
+            if (bModifyCustomJSON)
+            {
+                customJSONs.Clear();
+                for (int i = 0; i < keys.Count; i++)
+                {
+                    string key = keys[i];
+                    if (!string.IsNullOrEmpty(key))
+                        customJSONs[key] = values[i];
+                }
+                config.SetInt("*customJSONCount", customJSONs.Count);
+                int count = 0;
+                foreach (var one in customJSONs)
+                {
+                    config.SetString("customJSONKey" + count, one.Key);
+                    config.SetString("customJSONValue" + count, one.Value);
+                    count++;
+                }
+                config.Save();
+            }
+            if (GUILayout.Button(new GUIContent("Merge JSON manually", $"Merge config JSON to 'AssetBundles/games{buildTarget}.json'. \nYou need click this button manually when you has some games and merge them into ONE JSON file."), GUILayout.MaxWidth(200f)))
+                OnMergeJSON(Application.dataPath.Substring(0, Application.dataPath.Length - 7));
+            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.EndVertical();
+
 
             EditorGUILayout.Space();
             EditorGUILayout.SelectableLabel("Assembly for hot update script call:");
@@ -495,6 +674,40 @@ namespace CSharpLikeEditor
                 PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup, defines.ToArray());
             }
         }
+        static void OnMergeJSON(string path)
+        {
+            string[] strDirectories = Directory.GetDirectories(path + "/AssetBundles");
+            CSharpLike.JSONData games = null;
+            foreach (string strDirectorie in strDirectories)
+            {
+                if (File.Exists(strDirectorie + "/" + buildTarget + "/config.json"))
+                {
+                    CSharpLike.JSONData json = CSharpLike.KissJson.ToJSONData(File.ReadAllText(strDirectorie + "/" + buildTarget + "/config.json"));
+                    if (json != null)
+                    {
+                        if (games == null)
+                            games = CSharpLike.JSONData.NewList();
+                        CSharpLike.JSONData game = CSharpLike.JSONData.NewDictionary();
+                        game["version"] = json["version"];
+                        game["sumSize"] = json["sumSize"];
+                        game["name"] = json["name"];
+                        game["displayName"] = json["displayName"];
+                        game["url"] = json["url"] + "config.json";
+                        foreach (var one in json["custom"].Value as Dictionary<string, CSharpLike.JSONData>)
+                            game[one.Key] = one.Value;
+                        games.Add(game);
+                    }
+                }
+            }
+            if (games != null)
+            {
+                string fileName = path + "/AssetBundles/games" + buildTarget + ".json";
+                string strOld = File.Exists(fileName) ? File.ReadAllText(fileName) : null;
+                string strNew = games.ToJson(true);
+                if (strOld != strNew)
+                    File.WriteAllText(fileName, strNew, new System.Text.UTF8Encoding(false));
+            }
+        }
         static void OnExportAssetBundle()
         {
             string path = Application.dataPath.Substring(0, Application.dataPath.Length-7) + "/AssetBundles";
@@ -511,11 +724,22 @@ namespace CSharpLikeEditor
             AssetBundleManifest abm = BuildPipeline.BuildAssetBundles(path, babo, buildTarget);
             Debug.Log("OnExportAssetBundle : finish export AssetBundle to : " + path);
             CSharpLike.JSONData configJSON = CSharpLike.JSONData.NewDictionary();
-            configJSON["version"] = "1.0";
-            configJSON["url"] = "StreamingAssets/AssetBundles/" + strProductName + "/" + buildTarget.ToString()+"/";
+            configJSON["version"] = strVersion;
+            string _strDownloadPath = strDownloadPath;
+            if (string.IsNullOrEmpty(_strDownloadPath))
+                _strDownloadPath = "StreamingAssets/AssetBundles";
+            if (_strDownloadPath.EndsWith("/"))
+                _strDownloadPath = _strDownloadPath.Substring(0, _strDownloadPath.Length-1);
+            configJSON["url"] = _strDownloadPath + "/" + strProductName + "/" + buildTarget.ToString()+"/";
             long sumSize = 0;
             configJSON["sumSize"] = sumSize;
             configJSON["codeFile"] = strScriptOutputFile;
+            configJSON["name"] = strProductName;
+            configJSON["displayName"] = strDisplayName;
+            configJSON["defaultScene"] = strDefaultScene;
+            configJSON["custom"] = CSharpLike.JSONData.NewDictionary();
+            foreach (var one in customJSONs)
+                configJSON["custom"][one.Key] = one.Value;
             configJSON["files"] = CSharpLike.JSONData.NewList();
             foreach (var one in abm.GetAllAssetBundles())
             {
@@ -544,9 +768,10 @@ namespace CSharpLikeEditor
                 }
                 ab.Unload(false);
                 configJSON["files"].Add(file);
-                File.WriteAllText(copyToPath + "/" + "config.json", configJSON.ToJson(true), new System.Text.UTF8Encoding(false));
+                //File.WriteAllText(copyToPath + "/" + "config.json", configJSON.ToJson(true), new System.Text.UTF8Encoding(false));
             }
             configJSON["sumSize"] = sumSize;
+            //folder "/AssetBundles"
             string strJson = configJSON.ToJson(true);
             if (File.Exists(path + "/" + "config.json"))
             {
@@ -555,11 +780,23 @@ namespace CSharpLikeEditor
             }
             else
                 File.WriteAllText(path + "/" + "config.json", strJson, new System.Text.UTF8Encoding(false));
-            CopyTo(path + "/" + "config.json", copyToPath + "/" + "config.json");
+            //folder "StreamingAssets/AssetBundles"
+            configJSON["url"] = "StreamingAssets/AssetBundles/" + strProductName + "/" + buildTarget.ToString() + "/";
+            strJson = configJSON.ToJson(true);
+            if (File.Exists(copyToPath + "/" + "config.json"))
+            {
+                if (strJson != File.ReadAllText(copyToPath + "/" + "config.json"))
+                    File.WriteAllText(copyToPath + "/" + "config.json", strJson, new System.Text.UTF8Encoding(false));
+            }
+            else
+                File.WriteAllText(copyToPath + "/" + "config.json", strJson, new System.Text.UTF8Encoding(false));
+            //CopyTo(path + "/" + "config.json", copyToPath + "/" + "config.json");
             foreach (var one in abm.GetAllAssetBundles())
                 CopyTo(path + "/" + one, copyToPath + "/" + one);
-            CopyTo(path + "/" + configJSON["codeFile"], copyToPath + "/" + configJSON["codeFile"]);
+            //CopyTo(path + "/" + configJSON["codeFile"], copyToPath + "/" + configJSON["codeFile"]);
             Debug.Log("OnExportAssetBundle : finish copy AssetBundle to : " + copyToPath);
+            OnMergeJSON(Application.dataPath.Substring(0, Application.dataPath.Length - 7));
+            OnMergeJSON(Application.streamingAssetsPath);
             //System.Diagnostics.Process.Start(path);
         }
         static void CopyTo(string fileName1, string fileName2)

@@ -4,3 +4,4 @@ UnityEngine.CoreModule
 UnityEngine.AnimationModule
 UnityEngine.AudioModule
 UnityEngine.UIModule
+UnityEngine.PhysicsModule

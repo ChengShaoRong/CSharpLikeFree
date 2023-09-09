@@ -2,4 +2,11 @@
 *isDebug:False
 *isAssetBundleLZ:True
 ProductName:MicrogameFree
+DisplayName:Platformer Microgame
+DefaultScene:Assets/Scenes/SampleScene_HotUpdate.unity
+DownloadPath:https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles
+*customJSONCount:1
+customJSONKey0:Icon
+customJSONValue0:ABC
+Version:1.6
 ScriptSourceDir:Assets/Scripts_HotUpdate

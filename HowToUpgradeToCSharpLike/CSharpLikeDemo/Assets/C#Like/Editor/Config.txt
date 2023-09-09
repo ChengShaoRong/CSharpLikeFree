@@ -1,0 +1,13 @@
+*AssetStoreTools:False
+*isDebug:False
+*isAssetBundleLZ:True
+ProductName:CSharpLikeFreeDemo
+ScriptSourceDir:Assets/C#Like/HotUpdateScripts
+*isAutoPackScriptWhenPlay:False
+DisplayName:CSharpLikeDemo
+DefaultScene:Assets/C#Like/Scenes/BuildInDemoScene.unity
+DownloadPath:https://www.csharplike.com/CSharpLikeFreeDemo/AssetBundles
+*customJSONCount:1
+customJSONKey0:Icon
+customJSONValue0:ABC
+Version:1.6

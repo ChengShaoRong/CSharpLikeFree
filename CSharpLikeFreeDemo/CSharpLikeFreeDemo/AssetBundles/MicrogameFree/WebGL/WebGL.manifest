@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 2225734987
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: microgamefree.ab
+      Dependencies: {}
+    Info_1:
+      Name: code.ab
+      Dependencies: {}

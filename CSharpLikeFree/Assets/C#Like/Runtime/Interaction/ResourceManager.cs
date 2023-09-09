@@ -292,6 +292,36 @@ Config JSON format :
                 return DownloadTotalSize > 0ul ? DownloadedSize / (float)DownloadTotalSize : 1f;
             }
         }
+
+        static string SizeToString(ulong size)
+        {
+            if (size < 1024UL)
+                return size + "B";
+            else if (size < 1048576UL)
+                return (size / 1048576f).ToString("F2") + "KB";
+            else if (size < 1073741824UL)
+                return (size / 1073741824f).ToString("F2") + "MB";
+            else
+                return (size / 1099511627776f).ToString("F2") + "GB";
+        }
+        /// <summary>
+        /// Get the current state string
+        /// </summary>
+        public static string StateString
+        {
+            get
+            {
+                switch(state)
+                {
+                    case State.ConfigDone:
+                    case State.LoadingAssetBundle:
+                    case State.AllAssetBundleLoaded:
+                        return $"{state}({SizeToString(DownloadedSize)}/{SizeToString(DownloadTotalSize)})";
+                    default:
+                        return state.ToString();
+                }
+            }
+        }
         /// <summary>
         /// Synchronizing load Asset from AssetBundle by full name with subffix.
         /// You must make sure that the AssetBundle was loaded.
@@ -423,10 +453,12 @@ Config JSON format :
         /// Synchronizing load scene.
         /// Just trim scene name and then call the 'SceneManager.LoadScene'.
         /// </summary>
-        /// <param name="sceneName">Full name with subffix and start with 'Asset/' and end with '.unity', Case-sensitive</param>
+        /// <param name="sceneName">Full name with subffix and start with 'Asset/' and end with '.unity', Case-sensitive, if value is empty will using the first scene.</param>
         /// <param name="mode">If LoadSceneMode.Single then all current Scenes will be unloaded before loading.</param>
-        public static bool LoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Single)
+        public static bool LoadScene(string sceneName = "", LoadSceneMode mode = LoadSceneMode.Single)
         {
+            if (string.IsNullOrEmpty(sceneName))
+                sceneName = DefaultSceneName;
             if (!AssetExist(sceneName))
                 return false;
             if (!AssetLoaded(sceneName))
@@ -440,14 +472,26 @@ Config JSON format :
             return true;
         }
         /// <summary>
+        /// Default scene name
+        /// </summary>
+        public static string DefaultSceneName
+        {
+            get
+            {
+                return config != null && config.ContainsKey("defaultScene") ? (string)config["defaultScene"] : "";
+            }
+        }
+        /// <summary>
         /// Asynchronous Loading scene.
         /// Just trim scene name and then call the 'SceneManager.LoadSceneAsync'.
         /// </summary>
-        /// <param name="sceneName">Full name with subffix and start with 'Asset/' and end with '.unity', Case-sensitive</param>
+        /// <param name="sceneName">Full name with subffix and start with 'Asset/' and end with '.unity', Case-sensitive, if value is empty will using the first scene</param>
         /// <param name="mode">If LoadSceneMode.Single then all current Scenes will be unloaded before loading.</param>
         /// <param name="completed">The completed event, default null mean you don't care it.</param>
-        public static void LoadSceneAsync(string sceneName, LoadSceneMode mode = LoadSceneMode.Single, Action<string> completed = null)
+        public static void LoadSceneAsync(string sceneName = "", LoadSceneMode mode = LoadSceneMode.Single, Action<string> completed = null)
         {
+            if (string.IsNullOrEmpty(sceneName))
+                sceneName = DefaultSceneName;
             if (!AssetExist(sceneName))
                 completed?.Invoke("Not exist sceneName :" + sceneName);
             instance.StartCoroutine(instance.CoroutineLoadScene(sceneName, mode, completed));
@@ -469,6 +513,50 @@ Config JSON format :
             }
             yield return ao;
             completed?.Invoke("");
+        }
+        MyAssetBundle mabCode = null;
+        /// <summary>
+        /// Load the code from 'code.ab'
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerator LoadCode(List<string> errors = null)
+        {
+            if (instance == null)
+            {
+                if (errors != null)
+                    errors.Add("LoadCode : instance == null, you should call function Init first.");
+                yield break;
+            }
+            if (config == null)
+            {
+                if (errors != null)
+                    errors.Add("LoadCode : configJSON is null.");
+                yield break;
+            }
+            if (instance.mabCode == null)
+            {
+                if (errors != null)
+                    errors.Add("LoadCode : Not exist 'code.ab' or it was not loaded yet.");
+                yield break;
+            }
+            //Load hot update script binary file from AssetBundle
+            var codeFile = LoadAssetAsync<TextAsset>(config["codeFile"]);
+            yield return codeFile;
+            if (!string.IsNullOrEmpty(codeFile.error))
+            {
+                if (errors != null)
+                    errors.Add($"LoadCode : load '{config["codeFile"]}' error : '{codeFile.error}'");
+                yield break;
+            }
+            //Initialize hot update script binary file
+            var loadAsync = HotUpdateManager.LoadAsync(codeFile.asset.bytes);
+            yield return loadAsync;
+            if (!loadAsync.success)
+            {
+                if (errors != null)
+                    errors.Add("LoadCode : Not not success.");
+                yield break;
+            }
         }
         /// <summary>
         /// Get AudioClip from web, due to something error read AudioClip from AssetBundle in WebGL
@@ -714,7 +802,10 @@ Config JSON format :
             Queue<MyAssetBundle> temps = new Queue<MyAssetBundle>();
             string codeAB = "code.ab";
             if (assetBundles.ContainsKey(codeAB))
-                temps.Enqueue(assetBundles[codeAB]);
+            {
+                mabCode = assetBundles[codeAB];
+                temps.Enqueue(mabCode);
+            }
             foreach (var one in assetBundles)
             {
                 if (one.Key != codeAB)
@@ -731,17 +822,18 @@ Config JSON format :
             } while (temps.Count > 0 || loadingCount > 0);
             state = State.AllAssetBundleLoaded;
         }
+        public static JSONData config = null;
         IEnumerator CoroutineLoad(string configJsonUrl, bool autoLoadAssetBundle)
         {
             state = State.LoadingConfig;
             Debug.Log($"ResourceManager.CoroutineLoad(\"{configJsonUrl}\",{autoLoadAssetBundle})");
-            JSONData jsonData;
+            config = null;
             //Load config
             using (UnityWebRequest uwr = UnityWebRequest.Get(configJsonUrl))
             {
                 yield return uwr.SendWebRequest();
                 if (string.IsNullOrEmpty(uwr.error))
-                    jsonData = KissJson.ToJSONData(uwr.downloadHandler.text);
+                    config = KissJson.ToJSONData(GetUTF8String(uwr.downloadHandler.data));
                 else
                 {
                     Debug.LogError($"ResourceManager.CoroutineLoad : load from : '{configJsonUrl}' with error : '{uwr.error}'");
@@ -751,8 +843,8 @@ Config JSON format :
             }
             state = State.LoadingConfigDone;
             //Analyzing config
-            string url = ReplaceStreamingAssets(jsonData["url"]);
-            foreach(JSONData one in jsonData["files"].Value as List<JSONData>)
+            string url = ReplaceStreamingAssets(config["url"]);
+            foreach(JSONData one in config["files"].Value as List<JSONData>)
             {
                 assetBundles.Add(one["fileName"], new MyAssetBundle(one, url));
             }

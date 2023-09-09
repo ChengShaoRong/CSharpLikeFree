@@ -16,3 +16,10 @@
 *FreeType:False
 *isAssetBundleLZ:True
 ProductName:CsharpLike
+DisplayName:C#Like Demo
+DefaultScene:Assets/C#Like/Scenes/BuildInDemoScene.unity
+DownloadPath:https://www.csharplike.com/CSharpLikeDemo/AssetBundles
+*customJSONCount:1
+customJSONKey0:Icon
+customJSONValue0:ABC
+Version:1.6

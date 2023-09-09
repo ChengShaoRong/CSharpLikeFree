@@ -40,6 +40,13 @@ Specail thanks to open source C#Light : https://github.com/lightszero/CSLightStu
  Version History
 -----------------
 -----------------
+v 1.6
+Features
+- ResourceManager is now more fully automated and convenient to manager AssetBundle, you only need to configure the final download address in the C#Like settings panel.
+- Running directly in the editor will direct invocation of automatically packaged AssetBundle resources in StreamingAssets folder, making testing more convenient.
+Fixes
+- Fix the error while using behaviour in LikeBehaviour. The demo 'AircraftBattle' is OK now.
+
 v 1.5
 Features
 - HotUpdateBehaviour binding type add 'Sprite'

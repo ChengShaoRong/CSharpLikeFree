@@ -41,9 +41,9 @@ namespace AircraftBattle
                 {
                     bullet["time"] = time - bullet["rate"];
                     HotUpdateManager.NewInstance("Assets/C#Like/Sample/AircraftBattle/Bullet" + (bullet["ClassID"] - 100) + ".prefab",
-                        (HotUpdateBehaviour _hub) =>
+                        (object obj) =>
                         {
-                            _hub.MemberCall("Fire", bullet, null);
+                            (obj as Bullet).Fire(bullet, null);
                         },
                         transform.parent,
                         new Vector3(bullet["startX"] + transform.localPosition.x, bullet["startY"] + transform.localPosition.y));

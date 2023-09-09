@@ -1,0 +1,36 @@
+{
+    "version": "1.6",
+    "url": "StreamingAssets/AssetBundles/Tank/WebGL/",
+    "sumSize": 4938610,
+    "codeFile": "Assets/C#Like/output/code.bytes",
+    "name": "Tank",
+    "displayName": "Tanks! Tutorial",
+    "defaultScene": "Assets/_Complete-Game_HotUpdate.unity",
+    "custom": {
+        "Icon": "ABC"
+    },
+    "files": [
+        {
+            "fileName": "code.ab",
+            "hash128": "625059d2fd79a566246c4ddc8a6734fc",
+            "size": 10082,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "tanks.ab",
+            "hash128": "bbd9d3c52862c052bdc28ec8923a9c6a",
+            "size": 4928528,
+            "assets": [
+                "Assets/_Complete-Game_HotUpdate.unity"
+            ],
+            "dependencies": [
+
+            ]
+        }
+    ]
+}

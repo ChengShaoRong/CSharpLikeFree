@@ -1,0 +1,13 @@
+ManifestFileVersion: 0
+CRC: 941258632
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: cslike.ab
+      Dependencies: {}
+    Info_1:
+      Name: code.ab
+      Dependencies: {}
+    Info_2:
+      Name: demoscene.ab
+      Dependencies: {}

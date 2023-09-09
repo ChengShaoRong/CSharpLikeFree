@@ -26,6 +26,13 @@ https://www.csharplike.com/CSharpLikeDemo/index.html
 -----------------
  版本历史
 -----------------
+v 1.6
+功能
+- ResourceManager现在更加全自动更加方便管理AssetBundle了,你只需在C#Like设置面板里配置最终下载地址即可.
+- 编辑器里直接运行可以直接调用StreamingAssets内自动打包好的AssetBundle资源了,测试更加方便了.
+修正
+- 修正LikeBehaviour的behaviour异常,现在内置Demo的'飞机大战'正常了.
+
 v 1.5
 功能
 - 增加Sprite的绑定.

@@ -57,11 +57,9 @@ namespace AircraftBattle
                 {
                     bullet["time"] = time - bullet["rate"];
                     HotUpdateManager.NewInstance("Assets/C#Like/Sample/AircraftBattle/Bullet" + (bullet["ClassID"] - 100) + ".prefab",
-                        (HotUpdateBehaviour _hub) =>
+                        (object obj) =>
                         {
-                            _hub.MemberCall("Fire",
-                            bullet,
-                            BattleField.instance.player.transform);
+                            (obj as Bullet).Fire(bullet, BattleField.instance.player.transform);
                         },
                         transform.parent,
                         new Vector3(bullet["startX"] + transform.localPosition.x, bullet["startY"] + transform.localPosition.y));
@@ -102,9 +100,9 @@ namespace AircraftBattle
             Explode();
             //Create money instance
             HotUpdateManager.NewInstance("Assets/C#Like/Sample/AircraftBattle/Money0.prefab",
-                (HotUpdateBehaviour _hub) =>
+                (object obj) =>
                 {
-                    _hub.SetInt("money", GetInt("money"));
+                    (obj as Money).SetInt("money", GetInt("money"));
                 },
                 gameObject.transform.parent, transform.localPosition);
             //add score
@@ -135,7 +133,7 @@ namespace AircraftBattle
         public void Destroy()
         {
             HotUpdateManager.PushToPool(behaviour);
-            BattleField.instance.RemoveEnemy(behaviour);
+            BattleField.instance.RemoveEnemy(this);
         }
     }
 }

@@ -15,7 +15,7 @@ using Debug = UnityEngine.Debug;
 using System.IO.Compression;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-
+using UnityEngine.Networking;
 
 namespace CSharpLike
 {
@@ -74,20 +74,25 @@ namespace CSharpLike
         void Start()
 		{
 			instance = this;
-			foreach (HotUpdateBehaviour one in allHotUpdatePrefabs.Values)
-			{
-				try
-				{
-					if (one != null && one.gameObject != null)
-						Destroy(one.gameObject);
-				}catch
-				{ }
-			}
-			allHotUpdatePrefabs.Clear();
+            ClearAllHotUpdatePrefabs();
 			DontDestroyOnLoad(gameObject);
 
             if (UnityEngine.Random.Range(1, 2) == 0)//condition alway be false 
                 ForAOT();//Won't reach here!Don't remove it because it's for not stripping in IL2CPP            
+        }
+        public static void ClearAllHotUpdatePrefabs()
+        {
+            foreach (HotUpdateBehaviour one in allHotUpdatePrefabs.Values)
+            {
+                try
+                {
+                    if (one != null && one.gameObject != null)
+                        Destroy(one.gameObject);
+                }
+                catch
+                { }
+            }
+            allHotUpdatePrefabs.Clear();
         }
         void Update()
         {
@@ -229,7 +234,7 @@ namespace CSharpLike
         /// <param name="fileName">the file name of the path</param>
         /// <param name="callback">callback for you process after load finished</param>
         /// <param name="parent">the parent node</param>
-        public static void Show(string fileName, UnityAction<HotUpdateBehaviour> callback = null,Transform parent =null)
+        public static void Show(string fileName, UnityAction<object> callback = null,Transform parent =null)
 		{
 			Show(fileName, callback, parent, Vector3.zero);
         }
@@ -241,7 +246,7 @@ namespace CSharpLike
 		/// <param name="callback">callback for you process after load finished</param>
 		/// <param name="parent">the parent node</param>
 		/// <param name="pos">local position</param>
-		public static void Show(string fileName, UnityAction<HotUpdateBehaviour> callback, Transform parent, Vector3 pos)
+		public static void Show(string fileName, UnityAction<object> callback, Transform parent, Vector3 pos)
 		{
 			HotUpdateBehaviour hub = GetHotUpdate(fileName);
 			if (hub == null)
@@ -259,7 +264,7 @@ namespace CSharpLike
                             {
                                 hub.transform.localPosition = pos;
                                 allHotUpdatePrefabs.Add(fileName, hub);
-                                callback?.Invoke(hub);
+                                callback?.Invoke(hub.ScriptInstance);
                             }
                             else
                             {
@@ -277,7 +282,7 @@ namespace CSharpLike
             {
                 hub.transform.localPosition = pos;
                 hub.gameObject.SetActive(true);
-                callback?.Invoke(hub);
+                callback?.Invoke(hub.ScriptInstance);
             }
 		}
 		/// <summary>
@@ -372,7 +377,7 @@ namespace CSharpLike
         /// <param name="fileName">the file name of the prefab</param>
         /// <param name="callback">callback for you process after load finished</param>
         /// <param name="parent">the parent node</param>
-        public static void NewInstance(string fileName, UnityAction<HotUpdateBehaviour> callback, Transform parent)
+        public static void NewInstance(string fileName, UnityAction<object> callback, Transform parent)
 		{
 			NewInstance(fileName, callback, parent, Vector3.zero);
 		}
@@ -498,7 +503,7 @@ namespace CSharpLike
         /// <param name="callback">callback for you process after load finished</param>
         /// <param name="parent">the parent node</param>
         /// <param name="pos">local position</param>
-        public static void NewInstance(string prefabName, UnityAction<HotUpdateBehaviour> callback, Transform parent, Vector3 pos, bool bPool = true)
+        public static void NewInstance(string prefabName, UnityAction<object> callback, Transform parent, Vector3 pos, bool bPool = true)
 		{
 			HotUpdateBehaviour hub;
 			if (bPool)
@@ -507,9 +512,8 @@ namespace CSharpLike
 				if (hub != null)
                 {
 					hub.transform.localPosition = pos;
-					if (callback != null)
-						callback(hub);
-					return;
+                    callback?.Invoke(hub.ScriptInstance);
+                    return;
                 }
 			}
             //load from Resource folder
@@ -527,7 +531,7 @@ namespace CSharpLike
                             if (bPool)
                                 hub.SetString("__prefabName__", prefabName);
                             hub.transform.localPosition = pos;
-                            callback?.Invoke(hub);
+                            callback?.Invoke(hub.ScriptInstance);
                         }
                         else
                         {
@@ -1150,7 +1154,7 @@ namespace CSharpLike
             new SortedDictionary<SInstance, string[]>();
             new SortedDictionary<SInstance, SInstance[]>();
             new SortedDictionary<HotUpdateBehaviour, SInstance[]>();
-            new AheadOfTime();
+            //new AheadOfTime();
 #pragma warning restore CS0168
         }
 #if UNITY_EDITOR
@@ -1196,6 +1200,118 @@ namespace CSharpLike
 #else
             return "";
 #endif
+        }
+        public static JSONData Games { get; set; } = null;
+#if UNITY_EDITOR
+        /// <summary>
+        /// This function using in editor for you play the scene directly, and the code or AssetBundle may be not initialized
+        /// </summary>
+        public static void InitForEditor()
+        {
+            if (instance == null)
+            {
+                instance = (new GameObject("HotUpdateManager")).AddComponent<HotUpdateManager>();
+                //In editor, will load the hot update binary file directly
+                string strFileName = Application.dataPath + "/C#Like/output/code.bytes";
+                if (File.Exists(strFileName))
+                {
+                    Debug.Log($"Try load {strFileName} in editor, success = {Load(File.ReadAllBytes(strFileName))}");
+                }
+                //In editor, will load AssetBundle here DELAY. you CAN'T using AssetBundle immediately.
+                string strFile = Application.dataPath + "/C#Like/Editor/Config.txt";
+                string strProductName = "";
+                if (File.Exists(strFile))
+                {
+                    string[] lines = File.ReadAllLines(strFile);
+                    foreach (string line in lines)
+                    {
+                        if (line.StartsWith("ProductName:"))
+                        {
+                            strProductName = line.Substring(12);
+                            break;
+                        }
+                    }
+                }
+                if (string.IsNullOrEmpty(strProductName))
+                    strProductName = Application.productName;
+                strFile = Path.Combine(Application.streamingAssetsPath, "AssetBundles/" + strProductName + "/" + GetPlatformString() + "/config.json");
+                if (File.Exists(strFile))
+                    ResourceManager.Init(strFile);
+            }
+        }
+#endif
+        /// <summary>
+        /// Initialize HotUpdateManager with a URL.
+        /// URL priority : 
+        /// 1. In UnityEditor, FORCE using 'StreamingAssets/AssetBundles/games[Platform].json' if the 'automatic compile' in C#Like Setting panel was checked.
+        /// 2. Using the value of 'url' you just input.
+        /// 3. Using the value of 'Download Path' in C#Like Setting panel.
+        /// 4. Using 'StreamingAssets/AssetBundles/games[Platform].json', that mean you don't have a server and don't need hot update?
+        /// </summary>
+        /// <param name="url">The config JSON that contains your games information
+        /// </param>
+        public static void Init(string url = null)
+        {
+            if (instance == null)
+                instance = (new GameObject("HotUpdateManager")).AddComponent<HotUpdateManager>();
+            instance.StartCoroutine(instance.CoroutineLoad(url));
+        }
+        IEnumerator CoroutineLoad(string url)
+        {
+            //1 In editor, force using the file in StreamingAssets if isAutoPackScriptWhenPlay was checked!
+#if UNITY_EDITOR    
+            string strFile = Application.dataPath + "/C#Like/Editor/Config.txt";
+            bool isAutoPackScriptWhenPlay = true;
+            if (File.Exists(strFile))
+            {
+                string[] lines = File.ReadAllLines(strFile);
+                foreach (string line in lines)
+                {
+                    if (line.StartsWith("*isAutoPackScriptWhenPlay:"))
+                    {
+                        isAutoPackScriptWhenPlay = Convert.ToBoolean(line.Substring(26).Trim());
+                        break;
+                    }
+                }
+            }
+            if (isAutoPackScriptWhenPlay)
+                url = "StreamingAssets/AssetBundles/games" + GetPlatformString() + ".json";
+#endif
+            //2 Using the config file in Resources/CSharpLikeConfig.json
+            if (string.IsNullOrEmpty(url))
+            {
+                TextAsset ta = Resources.Load<TextAsset>("CSharpLikeConfig");
+                if (ta != null)
+                {
+                    JSONData json = KissJson.ToJSONData(ResourceManager.GetUTF8String(ta.bytes));
+                    string strPlatform = GetPlatformString();
+                    if (json.ContainsKey(strPlatform))
+                        url = json[strPlatform];
+                }
+            }
+            //3 Using the file in StreamingAssets
+            if (string.IsNullOrEmpty(url))
+                url = "StreamingAssets/AssetBundles/games" + GetPlatformString() + ".json";
+            if (url.StartsWith("StreamingAssets/"))
+                url = Path.Combine(Application.streamingAssetsPath, url.Substring(16));
+            do
+            {
+                Debug.Log($"Requesting {url}");
+                using (UnityWebRequest uwr = UnityWebRequest.Get(url))
+                {
+                    yield return uwr.SendWebRequest();
+                    if (string.IsNullOrEmpty(uwr.error))
+                    {
+                        Games = KissJson.ToJSONData(ResourceManager.GetUTF8String(uwr.downloadHandler.data));
+                        break;
+                    }
+                    else
+                    {
+                        Debug.LogError($"Requesting {url} with error {uwr.error}");
+                        yield return new WaitForSeconds(5f);
+                    }
+                }
+            } while (true);
         }
     }
 }
