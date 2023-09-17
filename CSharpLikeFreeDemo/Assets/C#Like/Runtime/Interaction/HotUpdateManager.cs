@@ -1154,7 +1154,7 @@ namespace CSharpLike
             new SortedDictionary<SInstance, string[]>();
             new SortedDictionary<SInstance, SInstance[]>();
             new SortedDictionary<HotUpdateBehaviour, SInstance[]>();
-            //new AheadOfTime();
+            new AheadOfTime();
 #pragma warning restore CS0168
         }
 #if UNITY_EDITOR

@@ -1,1 +1,4 @@
 UnityEngine.InputLegacyModule
+UnityEngine.InputModule
+UnityEngine.IMGUIModule
+UnityEngine.UnityWebRequestModule

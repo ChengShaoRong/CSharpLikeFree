@@ -135,6 +135,7 @@ namespace CSharpLikeEditor
                 CSharpLike.HotUpdateManager.vm = vm;
                 CSharpLike.HotUpdateManager.RegisterBuildIn();
                 dataPath = Application.dataPath;
+                abPath = Application.dataPath.Substring(0, Application.dataPath.Length - 7) + "/AssetBundles/" + strProductName + "/" + buildTarget.ToString();
                 foreach (var item in vm.typesss)
                 {
                     types.Add(item.Value, item.Key.type);
@@ -707,6 +708,57 @@ namespace CSharpLikeEditor
                 if (strOld != strNew)
                     File.WriteAllText(fileName, strNew, new System.Text.UTF8Encoding(false));
             }
+            if (path != Application.streamingAssetsPath)
+            {
+                //Merge 'Assets/C#Like/link.xml' and 'Assets/C#Like/Runtime/AheadOfTime/AheadOfTime.cs'
+                SortedDictionary<string, bool> links = new SortedDictionary<string, bool>();
+                SortedDictionary<string, bool> AOTs = new SortedDictionary<string, bool>();
+                foreach (string file in Directory.GetFiles(Application.dataPath.Substring(0, Application.dataPath.Length - 7) + "/AssetBundles/",
+                    "*.txt", SearchOption.AllDirectories))
+                {
+                    if (file.EndsWith("LinkForMerge.txt"))
+                    {
+                        foreach (string link in File.ReadAllLines(file, new System.Text.UTF8Encoding(false)))
+                        {
+                            links[link] = true;
+                        }
+                    }
+                    else if (file.EndsWith("AOTForMerge.txt"))
+                    {
+                        foreach (string AOT in File.ReadAllLines(file, new System.Text.UTF8Encoding(false)))
+                        {
+                            AOTs[AOT] = true;
+                        }
+                    }
+                }
+                if (links.Count > 0)
+                {
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append("<linker>\n");
+                    foreach (string str in links.Keys)
+                    {
+                        if (!string.IsNullOrEmpty(str) && !str.StartsWith("UnityEditor"))
+                        {
+                            sb.Append($"    <assembly fullname=\"{str}\" preserve=\"all\"/>\n");
+                        }
+                    }
+                    sb.Append("</linker>");
+                    string strNew = sb.ToString();
+                    string fileLink = Application.dataPath + "/C#Like/link.xml";
+                    string strOld = "";
+                    if (File.Exists(fileLink))
+                        strOld = File.ReadAllText(fileLink, System.Text.Encoding.UTF8);
+                    if (strOld != strNew)
+                        File.WriteAllText(fileLink, strNew, System.Text.Encoding.UTF8);
+                }
+                if (AOTs.Count > 0)
+                {
+                    List<string> aots = new List<string>();
+                    foreach (string aot in AOTs.Keys)
+                        aots.Add(aot);
+                    Profile.GenerationAOT(Application.dataPath, aots);
+                }
+            }
         }
         static void OnExportAssetBundle()
         {
@@ -741,6 +793,7 @@ namespace CSharpLikeEditor
             foreach (var one in customJSONs)
                 configJSON["custom"][one.Key] = one.Value;
             configJSON["files"] = CSharpLike.JSONData.NewList();
+            List<string> manifests = new List<string>();
             foreach (var one in abm.GetAllAssetBundles())
             {
                 CSharpLike.JSONData file = CSharpLike.JSONData.NewDictionary();
@@ -752,6 +805,7 @@ namespace CSharpLikeEditor
                 CSharpLike.JSONData dependencies = CSharpLike.JSONData.NewList();
                 file["assets"] = assets;
                 file["dependencies"] = dependencies;
+                manifests.Add(path + "/" + one + ".manifest");
 
                 foreach (var two in abm.GetAllDependencies(one))
                 {
@@ -793,6 +847,37 @@ namespace CSharpLikeEditor
             //CopyTo(path + "/" + "config.json", copyToPath + "/" + "config.json");
             foreach (var one in abm.GetAllAssetBundles())
                 CopyTo(path + "/" + one, copyToPath + "/" + one);
+            //Gen link.xml
+            List<int> classIds = new List<int>();
+            foreach (var one in manifests)
+            {
+                if (File.Exists(one))
+                {
+                    foreach (string line in File.ReadAllLines(one))
+                    {
+                        if (line.StartsWith("- Class: "))
+                        {
+                            try
+                            {
+                                int classId = Convert.ToInt32(line.Replace("- Class: ", ""));
+                                if (classId > 4 && !classIds.Contains(classId))
+                                    classIds.Add(classId);
+                            }
+                            catch { }
+                        }
+                    }
+                }
+            }
+            List<string> links = Profile.GenerationLinkXML(Application.dataPath, classIds);
+            string strOld = "";
+            string strLinkName = path + "/LinkForMerge.txt";
+            if (File.Exists(strLinkName))
+                strOld = File.ReadAllText(strLinkName, new System.Text.UTF8Encoding(false));
+            string strNew = "";
+            foreach (string line in links)
+                strNew += line + "\n";
+            if (strNew != strOld)
+                File.WriteAllText(strLinkName, strNew, new System.Text.UTF8Encoding(false));
             //CopyTo(path + "/" + configJSON["codeFile"], copyToPath + "/" + configJSON["codeFile"]);
             Debug.Log("OnExportAssetBundle : finish copy AssetBundle to : " + copyToPath);
             OnMergeJSON(Application.dataPath.Substring(0, Application.dataPath.Length - 7));

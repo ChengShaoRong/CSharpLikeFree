@@ -1,7 +1,6 @@
 UnityEngine.ParticleSystemModule
-UnityEngine.Physics2DModule
 UnityEngine.CoreModule
 UnityEngine.AnimationModule
+UnityEngine.Physics2DModule
 UnityEngine.AudioModule
 UnityEngine.UIModule
-UnityEngine.PhysicsModule
