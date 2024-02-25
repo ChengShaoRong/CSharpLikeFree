@@ -13,7 +13,7 @@ More detail in https://www.csharplike.com
 
 
 C#Like免费版的许可证,遵照Unity的[Asset Store Terms of Service and EULA](https://unity.com/legal/as-terms)
-C#Like免费版是C#Like的阉割版,本项目公开运行时的代码.
+C#Like免费版是[C#Like](https://assetstore.unity.com/packages/slug/222256)的阉割版,本项目公开运行时的代码.
 请到Unity里免费购买[C#Like免费版](https://assetstore.unity.com/packages/slug/222880),
 
 本示范包含2个第三方的资源,仅做示范如何把非热更项目改成热更新项目:
