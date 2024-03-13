@@ -1,0 +1,5 @@
+UnityEngine.CoreModule
+UnityEngine.UIModule
+UnityEngine.ParticleSystemModule
+UnityEngine.AudioModule
+UnityEngine.PhysicsModule

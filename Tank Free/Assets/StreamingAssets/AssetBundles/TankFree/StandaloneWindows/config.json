@@ -1,0 +1,59 @@
+{
+    "version": "2024.1",
+    "url": "StreamingAssets/AssetBundles/TankFree/StandaloneWindows/",
+    "sumSize": 3112004,
+    "codeFile": "Assets/C#Like/output/code.bytes",
+    "name": "TankFree",
+    "displayName": "TankFree",
+    "defaultBridge": "TreasureBox.TreasureBoxBridge",
+    "defaultScene": "Assets/_Complete-Game_HotUpdate.unity",
+    "custom": {
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/Tank.png"
+    },
+    "files": [
+        {
+            "fileName": "buildinscene.ab",
+            "hash128": "c47b9a3c56bd3a3bf63bcc79c3dfd784",
+            "size": 8284,
+            "assets": [
+                "Assets/C#Like/Scenes/HotUpdateSceneBuildInDemo.unity"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "code.ab",
+            "hash128": "c0407b2e6e59ba4bfad760e4e5834601",
+            "size": 9103,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "font.ab",
+            "hash128": "018a0e09c6ba9b682fb07d19c28ebdd0",
+            "size": 3083904,
+            "assets": [
+                "assets/c#like/fonts/sourcehansanstc-regular sdf.asset"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "treaseureboxscene.ab",
+            "hash128": "20862e9522bf766f0fb40b4e88ddca77",
+            "size": 10713,
+            "assets": [
+                "Assets/C#Like/Scenes/HotUpdateSceneTreasureBox.unity"
+            ],
+            "dependencies": [
+
+            ]
+        }
+    ]
+}

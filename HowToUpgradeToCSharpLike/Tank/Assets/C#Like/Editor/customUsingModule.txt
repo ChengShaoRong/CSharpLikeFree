@@ -1,3 +1,0 @@
-UnityEngine.InputLegacyModule
-Unity.Postprocessing.Runtime
-com.unity.multiplayer-hlapi.Runtime

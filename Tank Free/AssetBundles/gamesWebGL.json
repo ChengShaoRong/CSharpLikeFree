@@ -1,0 +1,11 @@
+[
+    {
+        "version": "2024.1",
+        "sumSize": 6158320,
+        "name": "TankFree",
+        "displayName": "TankFree",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/TankFree/WebGL/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/Tank.png"
+    }
+]

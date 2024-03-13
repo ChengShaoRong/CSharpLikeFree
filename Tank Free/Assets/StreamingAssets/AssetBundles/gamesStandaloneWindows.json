@@ -1,0 +1,29 @@
+[
+    {
+        "version": "2024.1",
+        "sumSize": 3112067,
+        "name": "Tank",
+        "displayName": "Tank",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "StreamingAssets/AssetBundles/Tank/StandaloneWindows/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBox/icon.png"
+    },
+    {
+        "version": "2024.1",
+        "sumSize": 3112004,
+        "name": "TankFree",
+        "displayName": "TankFree",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "StreamingAssets/AssetBundles/TankFree/StandaloneWindows/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/Tank.png"
+    },
+    {
+        "version": "2024.1",
+        "sumSize": 3638908,
+        "name": "TreasureBox",
+        "displayName": "TreasureBox",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "StreamingAssets/AssetBundles/TreasureBox/StandaloneWindows/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBox/icon.png"
+    }
+]

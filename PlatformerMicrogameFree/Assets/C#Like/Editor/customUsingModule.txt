@@ -1,4 +1,0 @@
-UnityEngine.InputLegacyModule
-UnityEngine.InputModule
-Cinemachine
-Unity.TextMeshPro

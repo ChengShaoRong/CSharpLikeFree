@@ -1,0 +1,14 @@
+*isDebug:False
+*isAssetBundleLZ:True
+ProductName:TankFree
+DisplayName:TankFree
+DefaultScene:Assets/_Complete-Game_HotUpdate.unity
+DownloadPath:https://www.csharplike.com/TreasureBoxFree/AssetBundles
+*customJSONCount:1
+customJSONKey0:Icon
+customJSONValue0:https://www.csharplike.com/TreasureBoxFree/Tank.png
+Version:2024.2
+ScriptSourceDir:Assets/_Completed-Assets/HotUpdateScripts
+*Unity.InternalAPIEngineBridge.001:True
+DefaultBridge:TreasureBox.TreasureBoxBridge
+*isAssetBundleForceRebuild:False

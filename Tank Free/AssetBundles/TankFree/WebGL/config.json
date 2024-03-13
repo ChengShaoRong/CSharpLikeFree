@@ -1,0 +1,37 @@
+{
+    "version": "2024.1",
+    "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/TankFree/WebGL/",
+    "sumSize": 6158320,
+    "codeFile": "Assets/C#Like/output/code.bytes",
+    "name": "TankFree",
+    "displayName": "TankFree",
+    "defaultBridge": "TreasureBox.TreasureBoxBridge",
+    "defaultScene": "Assets/_Complete-Game_HotUpdate.unity",
+    "custom": {
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/Tank.png"
+    },
+    "files": [
+        {
+            "fileName": "code.ab",
+            "hash128": "2fbe5d2595cc1ef403e6d83b4d5f6d54",
+            "size": 9102,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "tankscene.ab",
+            "hash128": "0602c2d51a2bcef9f7b52d895b2200c3",
+            "size": 6149218,
+            "assets": [
+                "Assets/_Complete-Game_HotUpdate.unity"
+            ],
+            "dependencies": [
+
+            ]
+        }
+    ]
+}
