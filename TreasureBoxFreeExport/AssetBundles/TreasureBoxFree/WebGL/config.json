@@ -1,0 +1,119 @@
+{
+    "version": "2024.1",
+    "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/TreasureBoxFree/WebGL/",
+    "sumSize": 4009680,
+    "codeFile": "Assets/C#Like/output/code.bytes",
+    "name": "TreasureBoxFree",
+    "displayName": "TreasureBoxFree",
+    "defaultBridge": "TreasureBox.TreasureBoxBridge",
+    "defaultScene": "Assets/C#Like/Scenes/HotUpdateSceneTreasureBox.unity",
+    "custom": {
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/icon.png"
+    },
+    "files": [
+        {
+            "fileName": "buildinscene.ab",
+            "hash128": "84a881b97b277e8eff2baaae4ca0837c",
+            "size": 8286,
+            "assets": [
+                "Assets/C#Like/Scenes/HotUpdateSceneBuildInDemo.unity"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "code.ab",
+            "hash128": "89ddaedf7ca4a592cd97781ec1b9f6e2",
+            "size": 34449,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "csv.ab",
+            "hash128": "a95ac1444812ebb1f873f08cd12e0593",
+            "size": 5684,
+            "assets": [
+                "assets/c#like/hotupdateresources/treasurebox/csv/character.csv",
+                "assets/c#like/hotupdateresources/treasurebox/csv/exp.csv",
+                "assets/c#like/hotupdateresources/treasurebox/csv/item.csv",
+                "assets/c#like/hotupdateresources/treasurebox/csv/localization.csv",
+                "assets/c#like/hotupdateresources/treasurebox/csv/serverlist.csv",
+                "assets/c#like/hotupdateresources/treasurebox/csv/signin.csv",
+                "assets/c#like/hotupdateresources/treasurebox/csv/vip.csv"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "font.ab",
+            "hash128": "acee6f292222578497d5c6bf7136e8f9",
+            "size": 3122015,
+            "assets": [
+                "assets/textmesh pro/fonts/sourcehansanstc-regular sdf.asset"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "icon.ab",
+            "hash128": "1299bd73800f12105072dc1f9418e26d",
+            "size": 60145,
+            "assets": [
+                "assets/c#like/hotupdateresources/treasurebox/spriteatlas/icon.spriteatlas"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "treaseureboxscene.ab",
+            "hash128": "c9b215629326695111ad7bd9a731de17",
+            "size": 10715,
+            "assets": [
+                "Assets/C#Like/Scenes/HotUpdateSceneTreasureBox.unity"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "ui.ab",
+            "hash128": "f034858a526683a20f0d63b40444f756",
+            "size": 768386,
+            "assets": [
+                "assets/c#like/hotupdateresources/treasurebox/prefab/authenticationpanel.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/bagpanel.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/commonrewardpanel.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/itemicon.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/loginpanel.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/mailpanel.mailtitle.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/mailpanel.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/mainscenepanel.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/messagebox.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/messagebox2.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/messagetips.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/messagetipstop.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/noticepanel.noticetitle.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/noticepanel.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/selectserverpanel.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/selectserverpanel.serverclassification.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/selectserverpanel.serverinfo.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/signinpanel.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/signinpanel.signinicon.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/spineactor.prefab",
+                "assets/c#like/hotupdateresources/treasurebox/prefab/waitingpanel.prefab"
+            ],
+            "dependencies": [
+                "font.ab",
+                "icon.ab"
+            ]
+        }
+    ]
+}

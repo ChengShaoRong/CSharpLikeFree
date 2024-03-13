@@ -1,0 +1,12 @@
+﻿<linker>
+    <assembly fullname="Assembly-CSharp" preserve="all"/>
+    <assembly fullname="mscorlib" preserve="all"/>
+    <assembly fullname="System" preserve="all"/>
+    <assembly fullname="UnityEngine" preserve="all"/>
+    <assembly fullname="UnityEngine.AudioModule" preserve="all"/>
+    <assembly fullname="UnityEngine.CoreModule" preserve="all"/>
+    <assembly fullname="UnityEngine.IMGUIModule" preserve="all"/>
+    <assembly fullname="UnityEngine.InputLegacyModule" preserve="all"/>
+    <assembly fullname="UnityEngine.TextRenderingModule" preserve="all"/>
+    <assembly fullname="UnityEngine.UIModule" preserve="all"/>
+</linker>

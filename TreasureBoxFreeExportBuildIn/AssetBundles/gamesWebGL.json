@@ -1,0 +1,11 @@
+[
+    {
+        "version": "2024.1",
+        "sumSize": 336971,
+        "name": "BuildInDemoFree",
+        "displayName": "BuildInDemoFree",
+        "defaultBridge": "CSharpLike.HotUpdateClassBridge",
+        "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/BuildInDemoFree/WebGL/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/icon.png"
+    }
+]

@@ -1,0 +1,81 @@
+﻿key,contentEN,contentCN
+LT_Login_bt_SelectServer,Reselect,选区
+LT_Login_bt_Notice,Notice,公告
+LT_Login_bt_StartGame,Start Game,开始游戏
+LT_Login_GetServerListFail,"Get server list fail, try reconnect or quit?","获取服务器列表失败,尝试重连还是退出?"
+LT_Notice_GetServerNoticeFail,"Get server notice fail, try reconnect or quit?","获取服务器公告失败,尝试重连还是退出?"
+LT_Reconnect,Reconnect,重连
+LT_Quit,Quit,退出
+LT_Tips,Tips,提示
+LT_Login_Timeout,"Login timeout, try reconnect or quit?","登录超时,尝试重连还是退出?"
+LT_InvalidServerID,Invalid server ID,服务器ID异常
+LT_Server_tg_My,My server,我的服务器
+LT_Server_tg_Recommend,Recommend,推荐服务器
+LT_Server_tg_Class,S{0}-{1},{0}-{1}区
+LT_Server_title,Reselect Server,重选服务器
+LT_Server_id,S{0},{0}区
+LT_Notice_Title,Notice,公告
+LT_Mail_Title,Mail,邮件
+LT_Mail_bt_DeleteAll,Delete All,一键删除
+LT_Mail_bt_GetAll,Get All,一键领取
+LT_Auth_Title0,Login,登录
+LT_Auth_Title1,Register,注册账号
+LT_Auth_Title2,Change Password,修改密码
+LT_Auth_Name,Name:,登录名:
+LT_Auth_Name_Placeholder,Enter 6-30 text...,请输入6-30长度的登录名...
+LT_Auth_Password,Password:,登录密码:
+LT_Auth_Password_Placeholder,Enter 6-30 text...,请输入6-30长度的密码...
+LT_Auth_OldPassword,Old Password:,旧密码:
+LT_Auth_NewPassword,New Password:,新密码:
+LT_Auth_ConfirmNewPassword,Confirm Password:,确认新密码:
+LT_Auth_ConfirmPassword,Confirm Password:,确认密码:
+LT_Auth_bt_GoBack,Go Back,返回
+LT_Auth_bt_Register,Register,注册
+LT_Auth_bt_Bind,Bind,绑定
+LT_Auth_bt_Login,Login,登录
+LT_Auth_bt_GuestLogin,Guest Login,游客登录
+LT_Auth_bt_ChangePassword,Change Password,修改密码
+LT_Auth_tg_SavePW,Remember,记住密码
+LT_Auth_NameLengthInvalid,Please enter a login name with a length of 6-30,请输入6-30长度的登录名
+LT_Auth_PasswordLengthInvalid,Please enter a login password with a length of 6-30,请输入6-30长度的密码
+LT_Auth_PasswordConfirmInvalid,The passwords entered twice do not match.,"2次输入的密码不一致,请核对"
+LT_Auth_PasswordSame,The new password same with old one.,"新旧密码相同,请核对"
+LT_Auth_ChangePasswordSuccess,Change password success,修改密码成功
+LT_Auth_RegisterSuccess,Register or bind account success,创建或绑定账号成功
+LT_Auth_FailNotExist,Not exist account,账号不存在
+LT_Auth_FailDB,Database error in server,服务器数据库发生异常
+LT_Auth_FailTokenExpire,Token expire,登录令牌过时
+LT_Auth_FailTokenNotMatch,Token not match,登录令牌错误
+LT_Auth_FailGuestNameInvalid,Guest name invalid,游客名异常
+LT_Auth_FailLoginNameInvalid,Login name invalid,登录名异常
+LT_Auth_FailLoginPasswordInvalid,Login password invalid,登录密码异常
+LT_Auth_FailLoginNameExist,Login name exist,登录名已存在
+LT_Auth_FailLoginPasswordNotMatch,Login password not match,密码不对
+LT_Auth_FailInvalidIP,IP invalid,IP异常
+LT_Main_Arena,Arena,竞技场
+LT_Main_Shop,Shop,商店
+LT_Main_Adventure,Adventure,冒险
+LT_Main_Task,Task,任务
+LT_Main_Bag,Bag,背包
+LT_Main_Help,Help,帮助
+LT_Main_Notice,Notice,公告
+LT_Main_Mail,Mail,邮件
+LT_Main_Gift,Gift,礼包
+LT_Main_SignIn,Sign in,签到
+LT_Mail_Appendix,Include {0} appendix,包含{0}个附件
+LT_Mail_bt_Get,Get,领取
+LT_Mail_bt_Delete,Delete,删除
+LT_Auth_LoginSuccess,Login success,成功登录
+LT_Mail_tip_HadReceived,The mail had received.,该邮件已领取了哦
+LT_Mail_tip_NoAppendix,No appendix.,该邮件没有附件
+LT_Mail_tip_NoMail,No mail now.,现在没有邮件哦
+LT_Mail_tip_DeleteButAppendixWasNotReceived,You should take the appendix first.,你应该先领取邮件
+LT_text_Received,Received,已领取
+LT_Reward_Title,Get Reward,获取奖励
+LT_Reward_Tips,Click outside the panel to close panel.,点击面板外处关闭面板
+LT_SignIn_Title,Sign In,签到奖励
+LT_Tips_SignInNull,"The Sign in data not received yet, please try later.","签到数据尚未同步,请稍后再试!"
+LT_Tips_SignInRewardHadBeenToken,The reward of this day had been token.,该天的签到奖励已领取过了
+LT_SignIn_Day,Day {0},第{0}天
+LT_Tips_ItemCount0,"The item data may be not received yet, please try later.","没有物品,可能物品数据尚未同步,请稍后再试!"
+LT_Bag_Title,Bag,背包 

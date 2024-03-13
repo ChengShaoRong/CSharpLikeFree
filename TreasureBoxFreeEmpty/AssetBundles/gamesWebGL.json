@@ -1,0 +1,38 @@
+[
+    {
+        "version": "2024.3",
+        "sumSize": 336971,
+        "name": "BuildInDemoFree",
+        "displayName": "BuildInDemoFree",
+        "defaultBridge": "CSharpLike.HotUpdateClassBridge",
+        "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/BuildInDemoFree/WebGL/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/icon.png"
+    },
+    {
+        "version": "2024.3",
+        "sumSize": 3948331,
+        "name": "PlatformerFree",
+        "displayName": "Platformer Free",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/PlatformerFree/WebGL/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/Platformer.png"
+    },
+    {
+        "version": "2024.3",
+        "sumSize": 6158320,
+        "name": "TankFree",
+        "displayName": "TankFree",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/TankFree/WebGL/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/Tank.png"
+    },
+    {
+        "version": "2024.3",
+        "sumSize": 4009680,
+        "name": "TreasureBoxFree",
+        "displayName": "TreasureBoxFree",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/TreasureBoxFree/WebGL/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/icon.png"
+    }
+]

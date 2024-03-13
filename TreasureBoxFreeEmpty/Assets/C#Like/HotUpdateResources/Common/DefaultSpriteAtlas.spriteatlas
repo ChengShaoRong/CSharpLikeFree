@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DefaultSpriteAtlas
+  serializedVersion: 2
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 5833c885d1cd02f4183e39a697767fad, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d0c07ad11c177d7429fade994460f234, type: 3}
+  - {fileID: 21300000, guid: 19675dd16338e6744a38bf8cbb568dcd, type: 3}
+  - {fileID: 21300000, guid: 0cec7b52b3b09a446a5f2f1a44e6e027, type: 3}
+  - {fileID: 21300000, guid: bd53aac26e8fbf24db345b31e5e84dbb, type: 3}
+  - {fileID: 21300000, guid: f2a9d64340339ab45a17816dfbda448d, type: 3}
+  - {fileID: 21300000, guid: b11f1d43c668acd499eee66caaf15934, type: 3}
+  - {fileID: 21300000, guid: ccddb0f3c7d06314fa557ea501f6f67f, type: 3}
+  - {fileID: 21300000, guid: 0cab8764ea2c7db41a5a27a7eb1366f1, type: 3}
+  - {fileID: 21300000, guid: 8ddcc845acf362842a274896ee64b122, type: 3}
+  - {fileID: 21300000, guid: 2b780d8573486ad45bddb6e935bb22dd, type: 3}
+  - {fileID: 21300000, guid: 69f7dce521b462a4e8f3e179addf095e, type: 3}
+  - {fileID: 21300000, guid: fa961f372d879454599b5f3f1b86a6bd, type: 3}
+  - {fileID: 21300000, guid: 0b9f0a78b9fecdc46b8a799044b0ed3f, type: 3}
+  - {fileID: 21300000, guid: 9cdd87192534cc841a3780e9ba39bcd9, type: 3}
+  - {fileID: 21300000, guid: 789acb49743e4624aa2583a057414840, type: 3}
+  - {fileID: 21300000, guid: d1ddbf7a01dea7944802f196718b80e7, type: 3}
+  - {fileID: 21300000, guid: 8992999ae94c4e849ad18ad3119686fb, type: 3}
+  - {fileID: 21300000, guid: 985f0edb2bbd8ea4cb039771483c8d0c, type: 3}
+  - {fileID: 21300000, guid: 9947d6bc601bffe48a84ea3f4e896824, type: 3}
+  - {fileID: 21300000, guid: c6d2f24e7c8f0934395921908574668d, type: 3}
+  - {fileID: 21300000, guid: 55b42dce862d0b1499577ed156c7ba3f, type: 3}
+  - {fileID: 21300000, guid: 898e107f4338aa3429efe7ee318d6143, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - checkBoxMark
+  - panelBgEx2
+  - bar
+  - dotGray
+  - inputFieldBg
+  - dropdownBg
+  - buttonYellow
+  - star
+  - panelBgEx
+  - buttonBlue
+  - panelBg
+  - panelBg2
+  - barBg
+  - close
+  - arrow
+  - black30
+  - dot
+  - frameTitleBg
+  - frameBg
+  - checkBoxBg
+  - button
+  - black100
+  m_RenderDataMap: {}
+  m_Tag: DefaultSpriteAtlas
+  m_IsVariant: 0
+  m_IsPlaceholder: 0

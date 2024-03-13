@@ -1,0 +1,4 @@
+﻿id,nameEN,nameCN,frame,icon,maxStack
+1,Apple,苹果,inputFieldBg,item1,99999
+2,Lemon,柠檬,inputFieldBg,item2,99999
+3,Orange,橙,inputFieldBg,item3,99999

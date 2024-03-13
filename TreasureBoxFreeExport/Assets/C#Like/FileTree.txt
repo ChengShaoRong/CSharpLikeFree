@@ -1,0 +1,83 @@
+C#Like
+    |
+    |--Editor                                               //C#LikeEditor, you can ignore it
+    |
+    |--HotUpdateResources                                   //Hot update resources folder, for pack into AssetBundle files
+    |    |
+    |    |--Common                                          //Common resources.
+    |    |   |--DefaultSpriteAtlas                          //Default sprite atlas folder. All image files in this folder will pack into SpriteAtlas 'DefaultSpriteAtlas.spriteatlas'
+    |    |   |--DefaultSpriteAtlas.spriteatlas              //Default sprite atlas
+    |    |
+    |    |--SampleBuildInDemo                               //Build-in demo resources, include prefab and CSV and image.
+    |    |                                                  //This folder will pack into AssetBundle file 'buildindemo.ab' 
+    |    |
+    |    |--TreasureBox                                     //Online game 'TreasureBox' resources.
+    |        |--CSV                                         //All CSV files. This folder will pack into AssetBundle file 'csv.ab' 
+    |        |--Prefab                                      //All prefab files. This folder will pack into AssetBundle file 'ui.ab' 
+    |        |--SpriteAtlas                                 //You can put your sprite atlas into this folder and as needed pack them into AssetBundle file(s)
+    |            |--Icon                                    //All image files in this folder will pack into SpriteAtlas 'Icon.spriteatlas'
+    |            |--Icon.spriteatlas                        //This file will pack into AssetBundle file 'icon.ab'
+    |
+    |--NoneHotUpdateResources                               //None hot update resources folder that using in the first none hot update scence
+    |    |
+    |    |--StaticSpriteAtlas                               //All image files in this folder will pack into SpriteAtlas 'StaticSpriteAtlas.spriteatlas'
+    |    |--StaticSpriteAtlas.spriteatlas                   //This sprite atlas for the first scence.
+    |
+    |--NoneHotUpdateScripts                                 //None hot update script folder (That's optional, you can put your none hot update scripts anywhere.)
+    |
+    |--output                                               //Default output folder for packed binary script
+    |    |
+    |    |--code.bytes                                      //Packed binary script, that will pack into AssetBundle file 'code.ab' 
+    |
+    |--Plugins                                              //WebSocket lib use in WebGL.
+    |
+    |--Resources                                            //Static resources folder, that none hot update
+    |    |
+    |    |--CSharpLikeConfig.json                           //This file generate by 'Window > C#Like > C#Like Setting > Download Path'
+    |    |--KissGameOneIcon.prefab                          //Using in first scence 'DefaultNoneHotUpdateScene.unity'
+    |    |--KissMessageBox.prefab                           //Default message box with 1 button
+    |    |--KissMessageBox2.prefab                          //Default message box with 2 button
+    |    |--KissMessageTips.prefab                          //Default message tip show at center
+    |    |--KissMessageTipsTop.prefab                       //Default message tip show at top
+    |    |--KissWaitingPanel.prefab                         //Default waiting panel show at center
+    |
+    |--Runtime
+    |    |--AheadOfTime                                     //Automatic generation by CSharpLikeEditor for IL2CPP, don't modify it
+    |    |--Interaction                                     //Interaction with user.
+    |    |    |--CLS_Environment.cs                         //The compare with C#Light/C#LikeFree/C#Like, and statement of the 'C#Light' author
+    |    |    |--CSL_Utils.cs                               //custom Encrypt/Decrypt the final binary file
+    |    |    |--HotUpdateBehaviour.cs                      //Hot update script behaviour Which interactive with Unity prefab,
+    |    |    |                                             //include 'Awake/OnEnable/Start/OnDisable/OnDestroy' behaviour only.
+    |    |    |--HotUpdateManager.cs                        //Hot update script manager
+    |    |    |--LikeBehaviour.cs                           //Hot update script base class 'MonoBehaviour'. If you want to interactive with Unity prefab,
+    |    |    |                                             //your class must Inherit from LikeBehaviour.You can think of it as MonoBehaviour in hot update script.
+    |    |    |--ResourceManager.cs                         //Resource manager
+    |    |    |--Simulation.cs                              //Source from 'Platformer Microgame' : https://assetstore.unity.com/packages/templates/platformer-microgame-151055
+    |    |    |--HotUpdateBehaviourCustom                   //You should custom your HotUpdateBehaviour base on HotUpdateBehaviour,
+    |    |        |                                         //so you can include more behaviours except 'Awake/OnEnable/Start/OnDisable/OnDestroy' behaviour
+    |    |        |--HotUpdateBehaviourAll.cs               //Include 'ALL' behaviours in MonoBehaviour.It's a backup plan in case for
+    |    |        |                                         //you forgot add your custom behaviour,we don't recommend use it.
+    |    |        |--HotUpdateBehaviourApplication.cs        //Include 'OnApplicationFocus/OnApplicationPause/OnApplicationQuit' behaviours
+    |    |        |--HotUpdateBehaviourCollision.cs         //Include 'OnCollisionEnter/OnCollisionExit/OnCollisionStay' behaviours
+    |    |        |--HotUpdateBehaviourCollision2D.cs       //Include 'OnCollisionEnter2D/OnCollisionExit2D/OnCollisionStay2D' behaviours
+    |    |        |--HotUpdateBehaviourCommon.cs            //Include 'FixedUpdate/LateUpdate/Update/OnGUI' behaviours
+    |    |        |--HotUpdateBehaviourFixedUpdate.cs       //Include 'FixedUpdate' behaviour
+    |    |        |--HotUpdateBehaviourLateUpdate.cs        //Include 'LateUpdate' behaviour
+    |    |        |--HotUpdateBehaviourOnGUI.cs             //Include 'OnGUI' behaviour
+    |    |        |--HotUpdateBehaviourTrigger.cs           //Include 'OnTriggerEnter/OnTriggerExit/OnTriggerStay' behaviours
+    |    |        |--HotUpdateBehaviourTrigger2D.cs         //Include 'OnTriggerEnter2D/OnTriggerExit2D/OnTriggerStay2D' behaviours
+    |    |        |--HotUpdateBehaviourUpdate.cs            //Include 'Update' behaviour
+    |    |        |--HotUpdateBehaviourUpdateTrigger2D.cs   //Include 'OnCollisionEnter2D/OnCollisionExit2D/OnTriggerStay2D/Update' behaviours
+    |    |
+    |    |--Internal                                        //The internal core of the C#Like (Network and virtual machine), you can ignore it.
+    |    |--KissCommon                                      //Common script
+    |    |--KissCSV                                         //Read CSV file specially made for C#Like.
+    |    |--KissJson                                        //JSON serialize library specially made for C#Like.
+    |    |--KissTween                                       //Kiss Tween system
+    |    |--KissUI                                          //Kiss UI system
+    |
+    |--link.xml                                             //config file for IL2CPP
+    |
+    |--Scenes
+         |--DefaultHotUpdateScene.unity                     //Default hot update scene, that will pack into AssetBundle file 'treasureboxscence.ab' 
+         |--DefaultNoneHotUpdateScene.unity                 //Default none hot update scene

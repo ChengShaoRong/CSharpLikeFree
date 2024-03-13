@@ -1,0 +1,10 @@
+Assembly-CSharp
+mscorlib
+System
+UnityEngine
+UnityEngine.AudioModule
+UnityEngine.CoreModule
+UnityEngine.IMGUIModule
+UnityEngine.InputLegacyModule
+UnityEngine.TextRenderingModule
+UnityEngine.UIModule

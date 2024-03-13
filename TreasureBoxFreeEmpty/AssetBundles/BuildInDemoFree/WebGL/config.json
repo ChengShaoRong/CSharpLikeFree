@@ -1,0 +1,72 @@
+{
+    "version": "2024.1",
+    "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/BuildInDemoFree/WebGL/",
+    "sumSize": 336971,
+    "codeFile": "Assets/C#Like/output/code.bytes",
+    "name": "BuildInDemoFree",
+    "displayName": "BuildInDemoFree",
+    "defaultBridge": "CSharpLike.HotUpdateClassBridge",
+    "defaultScene": "Assets/C#Like/Scenes/HotUpdateSceneBuildInDemo.unity",
+    "custom": {
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/icon.png"
+    },
+    "files": [
+        {
+            "fileName": "buildindemo.ab",
+            "hash128": "4a9061c5d32ed90aa907a491f86afc2b",
+            "size": 309175,
+            "assets": [
+                "assets/c#like/hotupdateresources/samplebuildindemo/aircraftbattle/aircraft0.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/aircraftbattle/battlefield.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/aircraftbattle/bullet0.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/aircraftbattle/bullet1.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/aircraftbattle/bullet2.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/aircraftbattle/enemy0.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/aircraftbattle/enemy1.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/aircraftbattle/enemy2.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/aircraftbattle/money0.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/csv/item.csv",
+                "assets/c#like/hotupdateresources/samplebuildindemo/csv/testcsv.csv",
+                "assets/c#like/hotupdateresources/samplebuildindemo/image/aircraft0.png",
+                "assets/c#like/hotupdateresources/samplebuildindemo/image/bg.png",
+                "assets/c#like/hotupdateresources/samplebuildindemo/image/bullet0.png",
+                "assets/c#like/hotupdateresources/samplebuildindemo/image/bullet1.png",
+                "assets/c#like/hotupdateresources/samplebuildindemo/image/enemy0.png",
+                "assets/c#like/hotupdateresources/samplebuildindemo/image/enemy1.png",
+                "assets/c#like/hotupdateresources/samplebuildindemo/image/enemy2.png",
+                "assets/c#like/hotupdateresources/samplebuildindemo/image/hpbar.png",
+                "assets/c#like/hotupdateresources/samplebuildindemo/image/money0.png",
+                "assets/c#like/hotupdateresources/samplebuildindemo/samplec#.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/samplecsharplikehotupdate.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/samplehelloworld.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/sampleinteractiveprefabdata.prefab",
+                "assets/c#like/hotupdateresources/samplebuildindemo/testtextasset.txt"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "buildinscene.ab",
+            "hash128": "84a881b97b277e8eff2baaae4ca0837c",
+            "size": 8286,
+            "assets": [
+                "Assets/C#Like/Scenes/HotUpdateSceneBuildInDemo.unity"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "code.ab",
+            "hash128": "edee6c4590b64409b59e5bd12150f4e7",
+            "size": 19510,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        }
+    ]
+}

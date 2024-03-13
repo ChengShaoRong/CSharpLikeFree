@@ -1,0 +1,21 @@
+﻿vip,exp,nameEN,nameCN,descEN,descCN,icon
+1,60,vip1,会员1,VIP level 1,会员等级1,VIP0
+2,200,vip2,会员2,VIP level 2,会员等级2,VIP0
+3,400,vip3,会员3,VIP level 3,会员等级3,VIP0
+4,800,vip4,会员4,VIP level 4,会员等级4,VIP0
+5,1000,vip5,会员5,VIP level 5,会员等级5,VIP5
+6,1500,vip6,会员6,VIP level 6,会员等级6,VIP5
+7,3000,vip7,会员7,VIP level 7,会员等级7,VIP5
+8,5000,vip8,会员8,VIP level 8,会员等级8,VIP5
+9,7000,vip9,会员9,VIP level 9,会员等级9,VIP5
+10,10000,vip10,会员10,VIP level 10,会员等级10,VIP10
+11,15000,vip11,会员11,VIP level 11,会员等级11,VIP10
+12,25000,vip12,会员12,VIP level 12,会员等级12,VIP10
+13,25000,vip13,会员13,VIP level 13,会员等级13,VIP10
+14,40000,vip14,会员14,VIP level 14,会员等级14,VIP10
+15,60000,vip15,会员15,VIP level 15,会员等级15,VIP15
+16,90000,vip16,会员16,VIP level 16,会员等级16,VIP15
+17,150000,vip17,会员17,VIP level 17,会员等级17,VIP15
+18,300000,vip18,会员18,VIP level 18,会员等级18,VIP15
+19,500000,vip19,会员19,VIP level 19,会员等级19,VIP15
+20,800000,vip20,会员20,VIP level 20,会员等级20,VIP15

@@ -1,0 +1,4 @@
+﻿id,nameEN,nameCN,webSocket,socketIp,sockPort,state
+1,Apple,苹果,wss://www.csharplike.com:10010,www.csharplike.com,9011,0
+2,Lemon,柠檬,wss://www.csharplike.com:10010,www.csharplike.com,9011,1
+9999,Watermelon,西瓜,wss://www.csharplike.com:10010,www.csharplike.com,9011,2

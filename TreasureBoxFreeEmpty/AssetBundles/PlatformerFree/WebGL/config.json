@@ -1,0 +1,37 @@
+{
+    "version": "2024.3",
+    "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/PlatformerFree/WebGL/",
+    "sumSize": 3948331,
+    "codeFile": "Assets/C#Like/output/code.bytes",
+    "name": "PlatformerFree",
+    "displayName": "Platformer Free",
+    "defaultBridge": "TreasureBox.TreasureBoxBridge",
+    "defaultScene": "Assets/PlatformerHotUpdate.unity",
+    "custom": {
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/Platformer.png"
+    },
+    "files": [
+        {
+            "fileName": "code.ab",
+            "hash128": "7c328e188be7bb43cc90b15b115be3dd",
+            "size": 13325,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "platformerscene.ab",
+            "hash128": "d6bfb927c38f1acc3b8828781af75ff8",
+            "size": 3935006,
+            "assets": [
+                "Assets/PlatformerHotUpdate.unity"
+            ],
+            "dependencies": [
+
+            ]
+        }
+    ]
+}

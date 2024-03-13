@@ -1,0 +1,11 @@
+[
+    {
+        "version": "2024.1",
+        "sumSize": 4009680,
+        "name": "TreasureBoxFree",
+        "displayName": "TreasureBoxFree",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/TreasureBoxFree/WebGL/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/icon.png"
+    }
+]

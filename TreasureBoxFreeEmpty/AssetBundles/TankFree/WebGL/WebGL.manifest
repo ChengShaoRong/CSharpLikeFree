@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 3181709006
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: code.ab
+      Dependencies: {}
+    Info_1:
+      Name: tankscene.ab
+      Dependencies: {}

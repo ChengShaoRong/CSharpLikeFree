@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 4027419185
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1299bd73800f12105072dc1f9418e26d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7c2540343e88b2e84dfdbf2d12e7f16d
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/C#Like/HotUpdateResources/TreasureBox/SpriteAtlas/Icon.spriteatlas
+Dependencies: []

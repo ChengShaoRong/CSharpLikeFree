@@ -1,0 +1,82 @@
+C#Like
+    |
+    |--Editor                                               //C#Like编辑器,你可以忽略它
+    |
+    |--HotUpdateResources                                   //热更新资源的目录,用于打包成多个AssetBundle文件
+    |    |
+    |    |--Common                                          //通用资源目录.
+    |    |   |--DefaultSpriteAtlas                          //默认的精灵图集目录,该目录里所有图片将打包成图集'DefaultSpriteAtlas.spriteatlas'
+    |    |   |--DefaultSpriteAtlas.spriteatlas              //默认的精灵图集文件
+    |    |
+    |    |--SampleBuildInDemo                               //内置演示资源目录,包含预制体和表格和图片.
+    |    |                                                  //该目录打包成AssetBundle文件'buildindemo.ab' 
+    |    |
+    |    |--TreasureBox                                     //在线游戏'TreasureBox'的资源.
+    |        |--CSV                                         //所有的表格文件.该目录将打包成AssetBundle文件'csv.ab' 
+    |        |--Prefab                                      //所有的预制体文件.该目录将打包成AssetBundle文件'ui.ab' 
+    |        |--SpriteAtlas                                 //所有的精灵图集文件,将按需打包成多个AssetBundle文件
+    |            |--Icon                                    //目录下所有图片将打包成图集'Icon.spriteatlas'
+    |            |--Icon.spriteatlas                        //该文件将打包成AssetBundle文件'icon.ab'
+    |
+    |--NoneHotUpdateResources                               //非热更新资源的目录,仅用于首个非热更新场景
+    |    |
+    |    |--StaticSpriteAtlas                               //静态精灵图集目录,该目录里所有图片将打包成图集'StaticSpriteAtlas.spriteatlas'
+    |    |--StaticSpriteAtlas.spriteatlas                   //该图集只被首个非热更新场景引用.
+    |
+    |--NoneHotUpdateScripts                                 //非热更新脚本目录 (这是可选的, 你的非热更新脚本爱放哪就放哪)
+    |
+    |--output                                               //默认的导出后的二进制脚本文件目录
+    |    |
+    |    |--code.bytes                                      //最终的二进制脚本文件将会打包成AssetBundle文件'code.ab' 
+    |
+    |--Plugins                                              //WebGL平台使用的WebSocket库.
+    |
+    |--Resources                                            //静态的资源目录(会被Unity自动打包进初始包内的).这是非热更新的.
+    |    |
+    |    |--CSharpLikeConfig.json                           //该文件自动生成:'Window > C#Like > C#Like Setting > Download Path'
+    |    |--KissGameOneIcon.prefab                          //被首个非热更新场景'DefaultNoneHotUpdateScene.unity'使用的
+    |    |--KissMessageBox.prefab                           //默认带1个按钮的提示框预制体
+    |    |--KissMessageBox2.prefab                          //默认带2个按钮的提示框预制体
+    |    |--KissMessageTips.prefab                          //默认提示框预制体(中间显示)
+    |    |--KissMessageTipsTop.prefab                       //默认提示框预制体(顶部显示)
+    |    |--KissWaitingPanel.prefab                         //默认等待界面预制体
+    |
+    |--Runtime
+    |    |--AheadOfTime                                     //编辑器自动生成AOT脚本,应对IL2CPP裁剪,别动它
+    |    |--Interaction                                     //C#交互部分,你应该关注这个目录
+    |    |    |--CLS_Environment.cs                         //C#Light/C#Like免费版/C#Like的三者比较,和C#Light作者的声明
+    |    |    |--CSL_Utils.cs                               //自定义最终导出二进制文件的加密解密方法
+    |    |    |--HotUpdateBehaviour.cs                      //热更脚本行为,与MonoBehaviour交互的载体,
+    |    |    |                                             //仅包含Awake/OnEnable/Start/OnDisable/OnDestroy行为.
+    |    |    |--HotUpdateManager.cs                        //热更脚本管理脚本 
+    |    |    |--LikeBehaviour.cs                           //热更脚本版的MonoBehaviour,如果在热更脚本中如果想跟预制体交互,就以这个作为基类.
+    |    |    |                                             //你可以把它当作热更脚本里的MonoBehaviour
+    |    |    |--ResourceManager.cs                         //资源管理器
+    |    |    |--Simulation.cs                              //适配'Platformer Microgame' : https://assetstore.unity.com/packages/templates/platformer-microgame-151055
+    |    |    |--HotUpdateBehaviourCustom                   //你应该在自定义更多的HotUpdateBehaviour,这样你就包含可以更多
+    |    |        |                                         //除了'Awake/OnEnable/Start/OnDisable/OnDestroy'的行为,来适配你的需求
+    |    |        |--HotUpdateBehaviourAll.cs               //包含MonoBehaviour"所有"行为的脚本,不建议使用,但这个是遗漏自定义合适行为的后备方案
+    |    |        |--HotUpdateBehaviourApplication.cs       //额外包含OnApplicationFocus/OnApplicationPause/OnApplicationQuit行为
+    |    |        |--HotUpdateBehaviourCollision.cs         //额外包含OnCollisionEnter/OnCollisionExit/OnCollisionStay行为
+    |    |        |--HotUpdateBehaviourCollision2D.cs       //额外包含OnCollisionEnter2D/OnCollisionExit2D/OnCollisionStay2D行为
+    |    |        |--HotUpdateBehaviourCommon.cs            //额外包含FixedUpdate/LateUpdate/Update/OnGUI行为
+    |    |        |--HotUpdateBehaviourFixedUpdate.cs       //额外包含FixedUpdate行为
+    |    |        |--HotUpdateBehaviourLateUpdate.cs        //额外包含LateUpdate行为
+    |    |        |--HotUpdateBehaviourOnGUI.cs             //额外包含OnGUI行为
+    |    |        |--HotUpdateBehaviourTrigger.cs           //额外包含OnTriggerEnter/OnTriggerExit/OnTriggerStay行为
+    |    |        |--HotUpdateBehaviourTrigger2D.cs         //额外包含OnTriggerEnter2D/OnTriggerExit2D/OnTriggerStay2D行为
+    |    |        |--HotUpdateBehaviourUpdate.cs            //额外包含Update行为
+    |    |        |--HotUpdateBehaviourUpdateTrigger2D.cs   //额外包含OnCollisionEnter2D/OnCollisionExit2D/OnTriggerStay2D/Update行为
+    |    |
+    |    |--Internal                                        //C#Like内部实现代码,你可以忽略它
+    |    |--KissCommon                                      //通用的脚本
+    |    |--KissCSV                                         //读取CSV文件的库
+    |    |--KissJson                                        //为C#Like量身打造的JSON解析库,你唯一的选择
+    |    |--KissTween                                       //Kiss Tween系统
+    |    |--KissUI                                          //Kiss UI系统
+    |
+    |--link.xml                                             //IL2CPP的配置文件
+    |
+    |--Scenes
+         |--DefaultHotUpdateScene.unity                     //默认的热更新场景,将会打包成AssetBundle文件'treasureboxscence.ab' 
+         |--DefaultNoneHotUpdateScene.unity                 //默认的非热更新场景,即首个场景

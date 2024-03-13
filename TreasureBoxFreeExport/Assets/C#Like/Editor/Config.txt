@@ -1,0 +1,14 @@
+*isDebug:False
+*isAssetBundleLZ:True
+ProductName:TreasureBoxFree
+DisplayName:TreasureBoxFree
+DefaultScene:Assets/C#Like/Scenes/HotUpdateSceneTreasureBox.unity
+DownloadPath:https://www.csharplike.com/TreasureBoxFree/AssetBundles
+*customJSONCount:1
+customJSONKey0:Icon
+customJSONValue0:https://www.csharplike.com/TreasureBoxFree/icon.png
+Version:2024.1
+ScriptSourceDir:Assets/C#Like/HotUpdateScripts/TreasureBox
+*Unity.InternalAPIEngineBridge.001:True
+DefaultBridge:TreasureBox.TreasureBoxBridge
+*isAssetBundleForceRebuild:False

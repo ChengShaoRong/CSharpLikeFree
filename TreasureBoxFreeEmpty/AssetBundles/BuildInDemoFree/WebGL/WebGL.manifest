@@ -1,0 +1,13 @@
+ManifestFileVersion: 0
+CRC: 1458676913
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: code.ab
+      Dependencies: {}
+    Info_1:
+      Name: buildindemo.ab
+      Dependencies: {}
+    Info_2:
+      Name: buildinscene.ab
+      Dependencies: {}

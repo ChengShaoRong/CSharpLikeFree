@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 3361129073
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: code.ab
+      Dependencies: {}
+    Info_1:
+      Name: icon.ab
+      Dependencies: {}
+    Info_2:
+      Name: treaseureboxscene.ab
+      Dependencies: {}
+    Info_3:
+      Name: csv.ab
+      Dependencies: {}
+    Info_4:
+      Name: ui.ab
+      Dependencies:
+        Dependency_0: icon.ab
+        Dependency_1: font.ab
+    Info_5:
+      Name: font.ab
+      Dependencies: {}
+    Info_6:
+      Name: buildinscene.ab
+      Dependencies: {}
