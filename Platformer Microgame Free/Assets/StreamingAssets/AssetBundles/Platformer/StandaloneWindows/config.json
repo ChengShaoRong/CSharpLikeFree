@@ -1,0 +1,37 @@
+{
+    "version": "2024.2",
+    "url": "StreamingAssets/AssetBundles/Platformer/StandaloneWindows/",
+    "sumSize": 6115924,
+    "codeFile": "Assets/C#Like/output/code.bytes",
+    "name": "Platformer",
+    "displayName": "Platformer",
+    "defaultBridge": "TreasureBox.TreasureBoxBridge",
+    "defaultScene": "Assets/PlatformerHotUpdate.unity",
+    "custom": {
+        "Icon": "https://www.csharplike.com/TreasureBox/Platformer.png"
+    },
+    "files": [
+        {
+            "fileName": "code.ab",
+            "hash128": "0c13648433cc53dc955d9f763014b832",
+            "size": 11898,
+            "assets": [
+                "assets/c#like/output/code.bytes"
+            ],
+            "dependencies": [
+
+            ]
+        },
+        {
+            "fileName": "platformerscene.ab",
+            "hash128": "7635a533d4f22b70e4691d9f4ae94a92",
+            "size": 6104026,
+            "assets": [
+                "Assets/PlatformerHotUpdate.unity"
+            ],
+            "dependencies": [
+
+            ]
+        }
+    ]
+}

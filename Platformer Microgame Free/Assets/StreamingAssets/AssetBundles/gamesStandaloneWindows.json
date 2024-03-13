@@ -1,0 +1,20 @@
+[
+    {
+        "version": "2024.2",
+        "sumSize": 6115924,
+        "name": "Platformer",
+        "displayName": "Platformer",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "StreamingAssets/AssetBundles/Platformer/StandaloneWindows/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBox/Platformer.png"
+    },
+    {
+        "version": "2024.2",
+        "sumSize": 6115795,
+        "name": "PlatformerFree",
+        "displayName": "Platformer Free",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "StreamingAssets/AssetBundles/PlatformerFree/StandaloneWindows/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/Platformer.png"
+    }
+]

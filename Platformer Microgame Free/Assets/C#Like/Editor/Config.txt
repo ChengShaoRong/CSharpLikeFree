@@ -1,0 +1,14 @@
+*isDebug:True
+*isAssetBundleLZ:True
+ProductName:PlatformerFree
+DisplayName:Platformer Free
+DefaultScene:Assets/PlatformerHotUpdate.unity
+DownloadPath:https://www.csharplike.com/TreasureBoxFree/AssetBundles
+*customJSONCount:1
+customJSONKey0:Icon
+customJSONValue0:https://www.csharplike.com/TreasureBoxFree/Platformer.png
+Version:2024.3
+ScriptSourceDir:Assets/ScriptsHotUpdate
+*Unity.InternalAPIEngineBridge.001:True
+DefaultBridge:TreasureBox.TreasureBoxBridge
+*isAssetBundleForceRebuild:False

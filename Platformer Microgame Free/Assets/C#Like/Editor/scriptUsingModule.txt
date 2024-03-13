@@ -1,0 +1,6 @@
+UnityEngine.Physics2DModule
+UnityEngine.CoreModule
+UnityEngine.AnimationModule
+UnityEngine.AudioModule
+UnityEngine.ParticleSystemModule
+UnityEngine.UIModule

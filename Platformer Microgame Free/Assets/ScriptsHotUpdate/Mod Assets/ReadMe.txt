@@ -1,0 +1,1 @@
+This folder from 'Assets\Mod Assets\Mod Resources\Scripts'

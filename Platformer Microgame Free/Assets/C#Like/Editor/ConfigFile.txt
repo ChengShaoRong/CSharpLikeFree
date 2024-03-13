@@ -1,0 +1,68 @@
+\Gameplay\EnablePlayerInput.cs*MD5:dabb20869c44e4163080b167a49893a9
+\Gameplay\EnablePlayerInput.cs*Length:341
+\Gameplay\EnemyDeath.cs*MD5:2801566f1b68cc5bd675466e1305ec23
+\Gameplay\EnemyDeath.cs*Length:535
+\Gameplay\HealthIsZero.cs*MD5:f0cff46eb4ca26f284e95b8205604e9a
+\Gameplay\HealthIsZero.cs*Length:443
+\Gameplay\PlayerDeath.cs*MD5:660465779e0ddd22e2b0da629a4586ab
+\Gameplay\PlayerDeath.cs*Length:1012
+\Gameplay\PlayerEnemyCollision.cs*MD5:a862bb759421763e89e23b9d55cb836e
+\Gameplay\PlayerEnemyCollision.cs*Length:1439
+\Gameplay\PlayerEnteredDeathZone.cs*MD5:aab250b927d75bd13fe9b267ac5d4ac5
+\Gameplay\PlayerEnteredDeathZone.cs*Length:434
+\Gameplay\PlayerEnteredVictoryZone.cs*MD5:376b76d4d3be8f0a77499efcf19e80bb
+\Gameplay\PlayerEnteredVictoryZone.cs*Length:569
+\Gameplay\PlayerJumped.cs*MD5:69b754dcf9417e53b5f107fc2f2b893b
+\Gameplay\PlayerJumped.cs*Length:442
+\Gameplay\PlayerLanded.cs*MD5:da18290fef409d2e0fa6822b05659b9b
+\Gameplay\PlayerLanded.cs*Length:341
+\Gameplay\PlayerSpawn.cs*MD5:14faf851ab54db08c0f8ca41fb2c1d66
+\Gameplay\PlayerSpawn.cs*Length:985
+\Gameplay\PlayerStopJump.cs*MD5:b58f166123050be8b14b0d0b91487fb8
+\Gameplay\PlayerStopJump.cs*Length:383
+\Gameplay\PlayerTokenCollision.cs*MD5:ac0f29aeeb290e373ac7f18acd8ba8b2
+\Gameplay\PlayerTokenCollision.cs*Length:535
+\Mechanics\AnimationController.cs*MD5:3b98e7d593a26a3e7f8cbb28baaa80ab
+\Mechanics\AnimationController.cs*Length:8185
+\Mechanics\DeathZone.cs*MD5:44cc40c28bc8e97364374e95b1259c49
+\Mechanics\DeathZone.cs*Length:720
+\Mechanics\EnemyController.cs*MD5:cbe226dc158db0b5daafb9d26d4dbab8
+\Mechanics\EnemyController.cs*Length:1855
+\Mechanics\GameController.cs*MD5:0863edeae63203b64326acb6c34faf29
+\Mechanics\GameController.cs*Length:2971
+\Mechanics\Health.cs*MD5:5312a9a5a198d46557d6966e38920df7
+\Mechanics\Health.cs*Length:1544
+\Mechanics\KinematicObject.cs*MD5:0040bc7887cefce1a81679f7f5b6fcea
+\Mechanics\KinematicObject.cs*Length:6039
+\Mechanics\PatrolPath.cs*MD5:3dd7cbc7b5a0e713133e751da22e5a80
+\Mechanics\PatrolPath.cs*Length:919
+\Mechanics\PatrolPath.Mover.cs*MD5:6cf648ee031a70aab7545cc9c4d5f00b
+\Mechanics\PatrolPath.Mover.cs*Length:1158
+\Mechanics\PlayerController.cs*MD5:8cac13a640fc64757122dc48ae496941
+\Mechanics\PlayerController.cs*Length:10553
+\Mechanics\SpawnPoint.cs*MD5:be6a32696971482d5f9b2bfbc900b8d8
+\Mechanics\SpawnPoint.cs*Length:208
+\Mechanics\TokenController.cs*MD5:fb382dddf468d6e734be2f5f4e4df65c
+\Mechanics\TokenController.cs*Length:3989
+\Mechanics\TokenInstance.cs*MD5:79b7e1395ff69d028562f98f53547123
+\Mechanics\TokenInstance.cs*Length:2357
+\Mechanics\VictoryZone.cs*MD5:c42b41aa8464703ae64eee2767593b77
+\Mechanics\VictoryZone.cs*Length:642
+\Mod Assets\EmitParticlesOnLand.cs*MD5:8440d787542b442f69f7f97c19e7455f
+\Mod Assets\EmitParticlesOnLand.cs*Length:794
+\Mod Assets\Jiggler.cs*MD5:3e78db6e1a66ee12d7a036b0367add36
+\Mod Assets\Jiggler.cs*Length:1894
+\Mod Assets\PlatformerJumpPad.cs*MD5:cb16ece68dd3c88bf5569f7caf7d72e0
+\Mod Assets\PlatformerJumpPad.cs*Length:708
+\Mod Assets\PlatformerSpeedPad.cs*MD5:6183553ffa66b025bc33f400170c2fa8
+\Mod Assets\PlatformerSpeedPad.cs*Length:1526
+\Mod Assets\SimpleTrigger.cs*MD5:41e15c62ddce583ad184a752fa2a6f11
+\Mod Assets\SimpleTrigger.cs*Length:663
+\Model\PlatformerModel.cs*MD5:542cd2553f406c304d9e724cdd314e92
+\Model\PlatformerModel.cs*Length:1284
+\UI\MainUIController.cs*MD5:b703194d84d946e65ee3249c0028dc67
+\UI\MainUIController.cs*Length:907
+\UI\MetaGameController.cs*MD5:dd805cef757fd21562a7608c68cbbe1c
+\UI\MetaGameController.cs*Length:2009
+\View\ParallaxLayer.cs*MD5:512ef4813dce3c3be998069aa6432cf7
+\View\ParallaxLayer.cs*Length:794

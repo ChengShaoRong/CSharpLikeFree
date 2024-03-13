@@ -1,0 +1,4 @@
+UnityEngine.InputLegacyModule
+UnityEngine.IMGUIModule
+Unity.Postprocessing.Runtime
+com.unity.multiplayer-hlapi.Runtime

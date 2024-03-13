@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 3600315804
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: code.ab
+      Dependencies: {}
+    Info_1:
+      Name: platformerscene.ab
+      Dependencies: {}

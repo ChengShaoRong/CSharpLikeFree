@@ -1,0 +1,11 @@
+[
+    {
+        "version": "2024.3",
+        "sumSize": 3948331,
+        "name": "PlatformerFree",
+        "displayName": "Platformer Free",
+        "defaultBridge": "TreasureBox.TreasureBoxBridge",
+        "url": "https://www.csharplike.com/TreasureBoxFree/AssetBundles/PlatformerFree/WebGL/config.json",
+        "Icon": "https://www.csharplike.com/TreasureBoxFree/Platformer.png"
+    }
+]
